@@ -1,0 +1,14 @@
+//
+//  GZv2ex-Prefix.pch
+//  GZv2ex
+//
+//  Created by Danny Ho on 9/1/16.
+//  Copyright © 2016 thanksdanny. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#endif

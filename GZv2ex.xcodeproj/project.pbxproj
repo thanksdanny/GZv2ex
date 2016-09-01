@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CBC0DBAD77A47CAA97F5F65 /* libPods-GZv2ex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ECE4C8F5F9AAA1E7C803FFE /* libPods-GZv2ex.a */; };
 		FDBD52711D77F290005AC5D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52701D77F290005AC5D1 /* main.m */; };
 		FDBD52741D77F290005AC5D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52731D77F290005AC5D1 /* AppDelegate.m */; };
-		FDBD52771D77F290005AC5D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52761D77F290005AC5D1 /* ViewController.m */; };
-		FDBD527A1D77F290005AC5D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDBD52781D77F290005AC5D1 /* Main.storyboard */; };
 		FDBD527C1D77F290005AC5D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDBD527B1D77F290005AC5D1 /* Assets.xcassets */; };
 		FDBD527F1D77F290005AC5D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDBD527D1D77F290005AC5D1 /* LaunchScreen.storyboard */; };
 		FDBD528A1D77F290005AC5D1 /* GZv2exTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52891D77F290005AC5D1 /* GZv2exTests.m */; };
 		FDBD52951D77F290005AC5D1 /* GZv2exUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52941D77F290005AC5D1 /* GZv2exUITests.m */; };
+		FDBD52A81D77F5CA005AC5D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDBD52A71D77F5CA005AC5D1 /* Main.storyboard */; };
+		FDBD52AB1D77F5FE005AC5D1 /* avatar_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = FDBD52AA1D77F5FE005AC5D1 /* avatar_placeholder.png */; };
+		FDBD52AE1D77F648005AC5D1 /* GZTopicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52AD1D77F648005AC5D1 /* GZTopicListViewController.m */; };
+		FDBD52B11D77F695005AC5D1 /* GZDetailTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52B01D77F695005AC5D1 /* GZDetailTopicViewController.m */; };
+		FDBD52B41D77F72E005AC5D1 /* GZHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52B31D77F72E005AC5D1 /* GZHelper.m */; };
+		FDBD52B81D77F79F005AC5D1 /* GZMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52B71D77F79F005AC5D1 /* GZMemberModel.m */; };
+		FDBD52BB1D77F7D8005AC5D1 /* GZNodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52BA1D77F7D8005AC5D1 /* GZNodeModel.m */; };
+		FDBD52BE1D77F802005AC5D1 /* GZReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52BD1D77F802005AC5D1 /* GZReplyModel.m */; };
+		FDBD52C11D77F82B005AC5D1 /* GZTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52C01D77F82B005AC5D1 /* GZTopicModel.m */; };
+		FDBD52C41D77F874005AC5D1 /* GZTopicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52C31D77F874005AC5D1 /* GZTopicListCell.m */; };
+		FDBD52C71D77F8A9005AC5D1 /* GZReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52C61D77F8A9005AC5D1 /* GZReplyCell.m */; };
+		FDBD52CA1D77F8DF005AC5D1 /* GZDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52C91D77F8DF005AC5D1 /* GZDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,13 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0ECE4C8F5F9AAA1E7C803FFE /* libPods-GZv2ex.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GZv2ex.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		879AB877D5B6F571103B7A4B /* Pods-GZv2ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GZv2ex.release.xcconfig"; path = "Pods/Target Support Files/Pods-GZv2ex/Pods-GZv2ex.release.xcconfig"; sourceTree = "<group>"; };
+		E607A3EA5608A4BF7AEC2301 /* Pods-GZv2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GZv2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GZv2ex/Pods-GZv2ex.debug.xcconfig"; sourceTree = "<group>"; };
 		FDBD526C1D77F290005AC5D1 /* GZv2ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GZv2ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDBD52701D77F290005AC5D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDBD52721D77F290005AC5D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FDBD52731D77F290005AC5D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FDBD52751D77F290005AC5D1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FDBD52761D77F290005AC5D1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		FDBD52791D77F290005AC5D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDBD527B1D77F290005AC5D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDBD527E1D77F290005AC5D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDBD52801D77F290005AC5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +62,29 @@
 		FDBD52901D77F290005AC5D1 /* GZv2exUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GZv2exUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDBD52941D77F290005AC5D1 /* GZv2exUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZv2exUITests.m; sourceTree = "<group>"; };
 		FDBD52961D77F290005AC5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDBD52A71D77F5CA005AC5D1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FDBD52AA1D77F5FE005AC5D1 /* avatar_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_placeholder.png; sourceTree = "<group>"; };
+		FDBD52AC1D77F648005AC5D1 /* GZTopicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZTopicListViewController.h; path = Controllers/GZTopicListViewController.h; sourceTree = "<group>"; };
+		FDBD52AD1D77F648005AC5D1 /* GZTopicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZTopicListViewController.m; path = Controllers/GZTopicListViewController.m; sourceTree = "<group>"; };
+		FDBD52AF1D77F695005AC5D1 /* GZDetailTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZDetailTopicViewController.h; path = Controllers/GZDetailTopicViewController.h; sourceTree = "<group>"; };
+		FDBD52B01D77F695005AC5D1 /* GZDetailTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZDetailTopicViewController.m; path = Controllers/GZDetailTopicViewController.m; sourceTree = "<group>"; };
+		FDBD52B21D77F72E005AC5D1 /* GZHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZHelper.h; path = Helper/GZHelper.h; sourceTree = "<group>"; };
+		FDBD52B31D77F72E005AC5D1 /* GZHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZHelper.m; path = Helper/GZHelper.m; sourceTree = "<group>"; };
+		FDBD52B61D77F79F005AC5D1 /* GZMemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZMemberModel.h; path = Models/GZMemberModel.h; sourceTree = "<group>"; };
+		FDBD52B71D77F79F005AC5D1 /* GZMemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZMemberModel.m; path = Models/GZMemberModel.m; sourceTree = "<group>"; };
+		FDBD52B91D77F7D8005AC5D1 /* GZNodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZNodeModel.h; path = Models/GZNodeModel.h; sourceTree = "<group>"; };
+		FDBD52BA1D77F7D8005AC5D1 /* GZNodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZNodeModel.m; path = Models/GZNodeModel.m; sourceTree = "<group>"; };
+		FDBD52BC1D77F802005AC5D1 /* GZReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZReplyModel.h; path = Models/GZReplyModel.h; sourceTree = "<group>"; };
+		FDBD52BD1D77F802005AC5D1 /* GZReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZReplyModel.m; path = Models/GZReplyModel.m; sourceTree = "<group>"; };
+		FDBD52BF1D77F82B005AC5D1 /* GZTopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZTopicModel.h; path = Models/GZTopicModel.h; sourceTree = "<group>"; };
+		FDBD52C01D77F82B005AC5D1 /* GZTopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZTopicModel.m; path = Models/GZTopicModel.m; sourceTree = "<group>"; };
+		FDBD52C21D77F874005AC5D1 /* GZTopicListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZTopicListCell.h; path = Views/GZTopicListCell.h; sourceTree = "<group>"; };
+		FDBD52C31D77F874005AC5D1 /* GZTopicListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZTopicListCell.m; path = Views/GZTopicListCell.m; sourceTree = "<group>"; };
+		FDBD52C51D77F8A9005AC5D1 /* GZReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZReplyCell.h; path = Views/GZReplyCell.h; sourceTree = "<group>"; };
+		FDBD52C61D77F8A9005AC5D1 /* GZReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZReplyCell.m; path = Views/GZReplyCell.m; sourceTree = "<group>"; };
+		FDBD52C81D77F8DF005AC5D1 /* GZDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZDataManager.h; path = Managers/GZDataManager.h; sourceTree = "<group>"; };
+		FDBD52C91D77F8DF005AC5D1 /* GZDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZDataManager.m; path = Managers/GZDataManager.m; sourceTree = "<group>"; };
+		FDBD52CB1D77F999005AC5D1 /* GZv2ex-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GZv2ex-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CBC0DBAD77A47CAA97F5F65 /* libPods-GZv2ex.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +113,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DB2A344BA094A1C18C2B92F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E607A3EA5608A4BF7AEC2301 /* Pods-GZv2ex.debug.xcconfig */,
+				879AB877D5B6F571103B7A4B /* Pods-GZv2ex.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7D6CC35F8FFD5D9D1D0F5A39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0ECE4C8F5F9AAA1E7C803FFE /* libPods-GZv2ex.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FDBD52631D77F290005AC5D1 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +137,8 @@
 				FDBD52881D77F290005AC5D1 /* GZv2exTests */,
 				FDBD52931D77F290005AC5D1 /* GZv2exUITests */,
 				FDBD526D1D77F290005AC5D1 /* Products */,
+				3DB2A344BA094A1C18C2B92F /* Pods */,
+				7D6CC35F8FFD5D9D1D0F5A39 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,14 +155,11 @@
 		FDBD526E1D77F290005AC5D1 /* GZv2ex */ = {
 			isa = PBXGroup;
 			children = (
-				FDBD52721D77F290005AC5D1 /* AppDelegate.h */,
-				FDBD52731D77F290005AC5D1 /* AppDelegate.m */,
-				FDBD52751D77F290005AC5D1 /* ViewController.h */,
-				FDBD52761D77F290005AC5D1 /* ViewController.m */,
-				FDBD52781D77F290005AC5D1 /* Main.storyboard */,
-				FDBD527B1D77F290005AC5D1 /* Assets.xcassets */,
-				FDBD527D1D77F290005AC5D1 /* LaunchScreen.storyboard */,
-				FDBD52801D77F290005AC5D1 /* Info.plist */,
+				FDBD52A31D77F46D005AC5D1 /* Controllers */,
+				FDBD52A51D77F483005AC5D1 /* Views */,
+				FDBD52A41D77F479005AC5D1 /* Models */,
+				FDBD52A61D77F48A005AC5D1 /* Managers */,
+				FDBD52A21D77F465005AC5D1 /* Helper */,
 				FDBD526F1D77F290005AC5D1 /* Supporting Files */,
 			);
 			path = GZv2ex;
@@ -117,7 +168,15 @@
 		FDBD526F1D77F290005AC5D1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FDBD52A91D77F5FE005AC5D1 /* Resources */,
+				FDBD52721D77F290005AC5D1 /* AppDelegate.h */,
+				FDBD52731D77F290005AC5D1 /* AppDelegate.m */,
+				FDBD527B1D77F290005AC5D1 /* Assets.xcassets */,
+				FDBD527D1D77F290005AC5D1 /* LaunchScreen.storyboard */,
+				FDBD52A71D77F5CA005AC5D1 /* Main.storyboard */,
+				FDBD52801D77F290005AC5D1 /* Info.plist */,
 				FDBD52701D77F290005AC5D1 /* main.m */,
+				FDBD52CB1D77F999005AC5D1 /* GZv2ex-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -140,6 +199,69 @@
 			path = GZv2exUITests;
 			sourceTree = "<group>";
 		};
+		FDBD52A21D77F465005AC5D1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FDBD52B21D77F72E005AC5D1 /* GZHelper.h */,
+				FDBD52B31D77F72E005AC5D1 /* GZHelper.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		FDBD52A31D77F46D005AC5D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDBD52AC1D77F648005AC5D1 /* GZTopicListViewController.h */,
+				FDBD52AD1D77F648005AC5D1 /* GZTopicListViewController.m */,
+				FDBD52AF1D77F695005AC5D1 /* GZDetailTopicViewController.h */,
+				FDBD52B01D77F695005AC5D1 /* GZDetailTopicViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FDBD52A41D77F479005AC5D1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FDBD52B61D77F79F005AC5D1 /* GZMemberModel.h */,
+				FDBD52B71D77F79F005AC5D1 /* GZMemberModel.m */,
+				FDBD52B91D77F7D8005AC5D1 /* GZNodeModel.h */,
+				FDBD52BA1D77F7D8005AC5D1 /* GZNodeModel.m */,
+				FDBD52BC1D77F802005AC5D1 /* GZReplyModel.h */,
+				FDBD52BD1D77F802005AC5D1 /* GZReplyModel.m */,
+				FDBD52BF1D77F82B005AC5D1 /* GZTopicModel.h */,
+				FDBD52C01D77F82B005AC5D1 /* GZTopicModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FDBD52A51D77F483005AC5D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FDBD52C21D77F874005AC5D1 /* GZTopicListCell.h */,
+				FDBD52C31D77F874005AC5D1 /* GZTopicListCell.m */,
+				FDBD52C51D77F8A9005AC5D1 /* GZReplyCell.h */,
+				FDBD52C61D77F8A9005AC5D1 /* GZReplyCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FDBD52A61D77F48A005AC5D1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FDBD52C81D77F8DF005AC5D1 /* GZDataManager.h */,
+				FDBD52C91D77F8DF005AC5D1 /* GZDataManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		FDBD52A91D77F5FE005AC5D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FDBD52AA1D77F5FE005AC5D1 /* avatar_placeholder.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +269,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDBD52991D77F290005AC5D1 /* Build configuration list for PBXNativeTarget "GZv2ex" */;
 			buildPhases = (
+				0AFF7038AC4DB2525D9B7730 /* [CP] Check Pods Manifest.lock */,
 				FDBD52681D77F290005AC5D1 /* Sources */,
 				FDBD52691D77F290005AC5D1 /* Frameworks */,
 				FDBD526A1D77F290005AC5D1 /* Resources */,
+				B81D87E6D04D8A17470355AE /* [CP] Embed Pods Frameworks */,
+				4AFE6B9E4D2D9E2AA771B7F4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,9 +371,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDBD52A81D77F5CA005AC5D1 /* Main.storyboard in Resources */,
 				FDBD527F1D77F290005AC5D1 /* LaunchScreen.storyboard in Resources */,
+				FDBD52AB1D77F5FE005AC5D1 /* avatar_placeholder.png in Resources */,
 				FDBD527C1D77F290005AC5D1 /* Assets.xcassets in Resources */,
-				FDBD527A1D77F290005AC5D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,14 +394,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0AFF7038AC4DB2525D9B7730 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4AFE6B9E4D2D9E2AA771B7F4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GZv2ex/Pods-GZv2ex-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B81D87E6D04D8A17470355AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GZv2ex/Pods-GZv2ex-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FDBD52681D77F290005AC5D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDBD52771D77F290005AC5D1 /* ViewController.m in Sources */,
+				FDBD52B81D77F79F005AC5D1 /* GZMemberModel.m in Sources */,
 				FDBD52741D77F290005AC5D1 /* AppDelegate.m in Sources */,
+				FDBD52C11D77F82B005AC5D1 /* GZTopicModel.m in Sources */,
+				FDBD52C71D77F8A9005AC5D1 /* GZReplyCell.m in Sources */,
 				FDBD52711D77F290005AC5D1 /* main.m in Sources */,
+				FDBD52C41D77F874005AC5D1 /* GZTopicListCell.m in Sources */,
+				FDBD52B11D77F695005AC5D1 /* GZDetailTopicViewController.m in Sources */,
+				FDBD52B41D77F72E005AC5D1 /* GZHelper.m in Sources */,
+				FDBD52CA1D77F8DF005AC5D1 /* GZDataManager.m in Sources */,
+				FDBD52AE1D77F648005AC5D1 /* GZTopicListViewController.m in Sources */,
+				FDBD52BB1D77F7D8005AC5D1 /* GZNodeModel.m in Sources */,
+				FDBD52BE1D77F802005AC5D1 /* GZReplyModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,14 +494,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FDBD52781D77F290005AC5D1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FDBD52791D77F290005AC5D1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FDBD527D1D77F290005AC5D1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -414,6 +589,7 @@
 		};
 		FDBD529A1D77F290005AC5D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E607A3EA5608A4BF7AEC2301 /* Pods-GZv2ex.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GZv2ex/Info.plist;
@@ -425,6 +601,7 @@
 		};
 		FDBD529B1D77F290005AC5D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 879AB877D5B6F571103B7A4B /* Pods-GZv2ex.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GZv2ex/Info.plist;
@@ -499,6 +676,7 @@
 				FDBD529B1D77F290005AC5D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FDBD529C1D77F290005AC5D1 /* Build configuration list for PBXNativeTarget "GZv2exTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +685,7 @@
 				FDBD529E1D77F290005AC5D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FDBD529F1D77F290005AC5D1 /* Build configuration list for PBXNativeTarget "GZv2exUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +694,7 @@
 				FDBD52A11D77F290005AC5D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
