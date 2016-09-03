@@ -31,6 +31,7 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.5.7):
     - MMDrawerController/Core
+  - RegexKitLite (4.0)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - Masonry (~> 0.6.3)
   - MJRefresh (~> 3.1.0)
   - MMDrawerController (~> 0.5.7)
+  - RegexKitLite
   - SDWebImage (~> 3.7.3)
 
 SPEC CHECKSUMS:
@@ -49,8 +51,9 @@ SPEC CHECKSUMS:
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJRefresh: bb72948c985914b0b5cecac573a2c69a8915fb02
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
+  RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
 
-PODFILE CHECKSUM: d60ce1a889fd30c8197ba3195816937be8842d74
+PODFILE CHECKSUM: b144fffd4b6de42e5b2758414f806fe8a9cbc786
 
 COCOAPODS: 1.0.1

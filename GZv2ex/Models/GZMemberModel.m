@@ -7,35 +7,42 @@
 //
 
 #import "GZMemberModel.h"
+#import "NSDictionary+NotNullKey.h"
 
 @implementation GZMemberModel
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"id"            : @"id",
-             @"username"      : @"username",
-             @"tagline"       : @"tagline",
-             @"avatar_mini"   : @"avatar_mini",
-             @"avatar_normal" : @"avatar_normal",
-             @"avatar_large"  : @"avatar_large",
+             @"memberId"           : @"id",
+             @"memberUsername"     : @"username",
+             @"memberTagline"      : @"tagline",
+             @"memberAvatarMini"   : @"avatar_mini",
+             @"memberAvatarNormal" : @"avatar_normal",
+             @"memberAvatarLarge"  : @"avatar_large",
              };
 }
 
-@end
-
-@implementation GZMemberList
-
-- (instancetype)initWithArray:(NSArray *)array {
-    if (self = [super init]) {
-        NSMutableArray *list = [[NSMutableArray alloc] init];
-        
-        for (NSDictionary *dict in array) {
-            NSError *error = nil;
-            GZMemberModel *model = [[GZMemberModel alloc] initWithDictionary:dict error:&error];
-            [list addObject:model];
-        }
-        self.list = list;
-    }
+- (instancetype)initWithDictionary:(NSDictionary *)dict {
+    self.memberId           = [dict objectForSafeKey:@"id"];
+    self.memberUsername     = [dict objectForSafeKey:@"username"];
+    self.memberTagline      = [dict objectForSafeKey:@"tagline"];
+    self.memberAvatarMini   = [dict objectForSafeKey:@"avatar_mini"];
+    self.memberAvatarNormal = [dict objectForSafeKey:@"avatar_normal"];
+    self.memberAvatarLarge  = [dict objectForSafeKey:@"avatar_large"];
+    
+#warning 设置头像时可以在这处理url
+//    if ([self.memberAvatarMini hasPrefix:@"//"]) {
+//        self.memberAvatarMini = [@"http:" stringByAppendingString:self.memberAvatarMini];
+//    }
+//    
+//    if ([self.memberAvatarNormal hasPrefix:@"//"]) {
+//        self.memberAvatarNormal = [@"http:" stringByAppendingString:self.memberAvatarNormal];
+//    }
+//    
+//    if ([self.memberAvatarLarge hasPrefix:@"//"]) {
+//        self.memberAvatarLarge = [@"http:" stringByAppendingString:self.memberAvatarLarge];
+//    }
+    
     return self;
 }
 

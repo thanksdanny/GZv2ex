@@ -12,6 +12,36 @@
 @class GZReplyList;
 @class GZTopicList;
 
+typedef  NS_ENUM(NSInteger, GZErrorType) {
+    GZErrorTypeNoOnceAndNext          = 700,
+    GZErrorTypeLoginFailure           = 701,
+    GZErrorTypeRequestFailure         = 702,
+    GZErrorTypeGetFeedURLFailure      = 703,
+    GZErrorTypeGetTopicListFailure    = 704,
+    GZErrorTypeGetNotificationFailure = 705,
+    GZErrorTypeGetFavUrlFailure       = 706,
+    GZErrorTypeGetMemberReplyFailure  = 707,
+    GZErrorTypeGetTopicTokenFailure   = 708,
+    GZErrorTypeGetCheckInURLFailure   = 709,
+};
+
+typedef NS_ENUM(NSInteger, GZHotNodesType) {
+    GZHotNodesTypeTech,
+    GZHotNodesTypeCreative,
+    GZHotNodesTypePlay,
+    GZHotNodesTypeApple,
+    GZHotNodesTypeJobs,
+    GZHotNodesTypeDeals,
+    GZHotNodesTypeCity,
+    GZHotNodesTypeQna,
+    GZHotNodesTypeHot,
+    GZHotNodesTypeAll,
+    GZHotNodesTypeR2,
+    GZHotNodesTypeNodes,
+    GZHotNodesTypeMembers,
+    GZHotNodesTypeFav,
+};
+
 @interface GZDataManager : NSObject
 
 @property (nonatomic, assign) BOOL preferHttps;
@@ -28,7 +58,7 @@
 - (NSURLSessionDataTask *)getLatestTopicsSuccess:(void (^)(NSArray *latestArray))success
                                          failure:(void (^)(NSError *error))failure;
 - (NSURLSessionDataTask *)getLatestTopicsWithPage:(NSInteger)page
-                                          success:(void (^)(NSArray *latestArray))success
+                                          success:(void (^)(GZTopicList *list))success
                                           failure:(void (^)(NSError *error))failure;
 
 // 请求主题详情
@@ -49,4 +79,11 @@
                                             page:(NSInteger)page
                                          success:(void (^)(NSArray *nodeTopicArray))success
                                          failure:(void (^)(NSError *error))failure;
+
+/* 获取分类节点主题 */
+- (NSURLSessionDataTask *)getTopicListWithType:(GZHotNodesType)type
+                                       success:(void (^)(GZTopicList *list))success
+                                       failure:(void (^)(NSError *error))failure;
+
+
 @end

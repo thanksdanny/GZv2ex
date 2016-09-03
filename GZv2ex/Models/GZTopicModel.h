@@ -13,18 +13,22 @@
 
 @interface GZTopicModel : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, copy) NSNumber *id;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *url;
-@property (nonatomic, copy) NSString *content;
-@property (nonatomic, copy) NSString *content_rendered;
-@property (nonatomic, copy) NSNumber *replies;
-@property (nonatomic, copy) NSNumber *created;
-@property (nonatomic, copy) NSNumber *last_modified;
-@property (nonatomic, copy) NSNumber *last_touched;
+@property (nonatomic, copy) NSNumber *topicId;
+@property (nonatomic, copy) NSString *topicTitle;
+@property (nonatomic, copy) NSString *topicUrl;
+@property (nonatomic, copy) NSString *topicContent;
+@property (nonatomic, copy) NSString *topicContentRendered;
+@property (nonatomic, copy) NSNumber *topicReplies;
+@property (nonatomic, copy) NSNumber *topicCreated;
+@property (nonatomic, copy) NSNumber *topicLastModified;
+@property (nonatomic, copy) NSNumber *topicLastTouched;
 
-@property (nonatomic, strong) GZMemberModel *member;
-@property (nonatomic, strong) GZNodeModel   *node;
+@property (nonatomic, strong) GZMemberModel *topicMember;
+@property (nonatomic, strong) GZNodeModel   *topicNode;
+
+@property (nonatomic, copy) NSString *topicCreatedDescription;
+@property (nonatomic, assign) CGFloat cellHeight;
+@property (nonatomic, assign) CGFloat titleHeight;
 
 @end
 
@@ -34,6 +38,6 @@
 @property (nonatomic, strong) NSArray *list;
 
 - (instancetype)initWithArray:(NSArray *)array;
-
++ (GZTopicList *)getTopicListFromResponseObject:(id)responseObject;
 @end
 

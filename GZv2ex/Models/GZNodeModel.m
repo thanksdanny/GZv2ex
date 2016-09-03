@@ -7,21 +7,56 @@
 //
 
 #import "GZNodeModel.h"
+#import "NSDictionary+NotNullKey.h"
 
 @implementation GZNodeModel
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"id"                : @"id" ,
-             @"name"              : @"name",
-             @"title"             : @"title",
-             @"title_alternative" : @"title_alternative",
-             @"url"               : @"url" ,
-             @"topics"            : @"topics",
-             @"avatar_mini"       : @"avatar_mini",
-             @"avatar_normal"     : @"avatar_normal",
-             @"avatar_large"      :  @"avatar_large",
+             @"nodeId"                : @"id" ,
+             @"nodeName"              : @"name",
+             @"nodeTitle"             : @"title",
+             @"nodeTitleAlternative"  : @"title_alternative",
+             @"nodeUrl"               : @"url" ,
+             @"nodeTopics"            : @"topics",
+             @"nodeAvatarMini"        : @"avatar_mini",
+             @"nodeAvatarNormal"      : @"avatar_normal",
+             @"nodeAvatarLarge"       : @"avatar_large",
              };
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict {
+    
+    self.nodeId               = [dict objectForSafeKey:@"id"];
+    self.nodeName             = [dict objectForSafeKey:@"name"];
+    self.nodeUrl              = [dict objectForSafeKey:@"url"];
+    self.nodeTitle            = [dict objectForSafeKey:@"title"];
+    self.nodeTitleAlternative = [dict objectForSafeKey:@"title_alternative"];
+    self.nodeTopics           = [dict objectForSafeKey:@"topics"];
+    self.nodeAvatarMini       = [dict objectForSafeKey:@"header"];
+    self.nodeAvatarNormal     = [dict objectForSafeKey:@"footer"];
+    self.nodeAvatarLarge      = [dict objectForSafeKey:@"created"];
+    
+    
+    return self;
+}
+
+@end
+
+@implementation GZNodeList
+
+- (instancetype)initWithArray:(NSArray *)array {
+    if (self = [super init]) {
+        NSMutableArray *list = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *dict in array) {
+            GZNodeModel *model = [[GZNodeModel alloc] initWithDictionary:dict];
+            [list addObject:model];
+        }
+        self.list = list;
+    }
+    
+    return self;
 }
 
 @end
