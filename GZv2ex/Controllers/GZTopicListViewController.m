@@ -68,18 +68,19 @@
 - (void)updateHotData {
     // 首页获取数据
     
-    [[GZDataManager shareManager] getLatestTopicsSuccess:^(NSArray *latestArray) {
-        self.hotList = latestArray;
-        [self.tableView reloadData]; // 读完数据需要reloadData
-    } failure:^(NSError *error) {
-        NSLog(@"%@", error);
-    }];
-//    [[GZDataManager shareManager] getLatestTopicsWithPage:1
-//                                                  success:^(GZTopicList *list) {
-//                                                      self.hotList = (NSArray *)list;
-//                                                  } failure:^(NSError *error) {
-//                                                     NSLog(@"%@", error);
-//                                                  }];
+//    [[GZDataManager shareManager] getLatestTopicsSuccess:^(NSArray *latestArray) {
+//        self.hotList = latestArray;
+//        [self.tableView reloadData]; // 读完数据需要reloadData
+//    } failure:^(NSError *error) {
+//        NSLog(@"%@", error);
+//    }];
+    [[GZDataManager shareManager] getTopicListWithType:GZHotNodesTypeTech
+                                               success:^(GZTopicList *list) {
+                                                   self.hotList = (NSArray *)list;
+                                               }
+                                               failure:^(NSError *error) {
+                                                   NSLog(@"%@", error);
+                                               }];
 }
 
 #pragma mark - segue

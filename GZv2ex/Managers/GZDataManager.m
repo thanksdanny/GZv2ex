@@ -364,14 +364,22 @@ typedef NS_ENUM(NSInteger, GZRequestMethod) {
             [parameters setObject:@"all" forKey:@"tab"];
             break;
     }
-    return nil;
     
-//    return [self requestWithMethod:GZRequestMethodHTTPGET
-//                         URLString:@"" parameters:parameters
-//                           success:^(NSURLSessionDataTask *task, id responseObject) {
-//                               GZTopicList *list = [GZTopicList ]
-//                           }
-//                           failure:<#^(NSError *error)failure#>]
+    return [self requestWithMethod:GZRequestMethodHTTPGET
+                         URLString:@""
+                        parameters:parameters
+                           success:^(NSURLSessionDataTask *task, id responseObject) {
+                               GZTopicList *list = [GZTopicList getTopicListFromResponseObject:responseObject];
+                               if (list) {
+                                   success(list);
+                               } else {
+                                   NSError *error = [[NSError alloc] initWithDomain:self.manager.baseURL.absoluteString code:GZErrorTypeGetTopicListFailure userInfo:nil];
+                                   failure(error);
+                               }
+                           }
+                           failure:^(NSError *error) {
+                               failure(error);
+                           }];
 }
 
 @end
