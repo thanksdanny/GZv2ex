@@ -180,7 +180,7 @@
                                     NSString *topicIdString = [aNode getAttributeNamed:@"href"];
                                     NSArray *subArray = [topicIdString componentsSeparatedByString:@"#"];
                                     
-#warning 这里两次强转，应该不会出问题吧？(后来不用强转，使用类型转换的方式)
+                                    
                                     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
                                     f.numberStyle = NSNumberFormatterDecimalStyle;
                                     // 将string的topicId转回对应的NSNumber
