@@ -21,5 +21,8 @@
 
 @property (nonatomic, strong) GZTopicModel *model;
 
++ (CGFloat)getCellHeightWithTopicModel:(GZTopicModel *)model;
++ (CGFloat)heightWithTopicModel:(GZTopicModel *)model;
+
 
 @end

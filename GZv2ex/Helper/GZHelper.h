@@ -23,4 +23,8 @@
 // local
 + (NSArray *)localDateStringWithUTCString:(NSString *)dateString;
 
+
+// 字体宽度
++ (CGFloat)getTextWidthWithText:(NSString *)text Font:(UIFont *)font;
++ (CGFloat)getTextHeightWithText:(NSString *)text Font:(UIFont *)font Width:(CGFloat)width;
 @end

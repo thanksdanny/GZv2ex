@@ -10,4 +10,6 @@ target 'GZv2ex' do
 	pod 'MJRefresh', '~> 3.1.0'
 	pod 'Masonry', '~> 0.6.3'
 	pod 'MMDrawerController', '~> 0.5.7'
+	pod 'RegexKitLite'
+
 end

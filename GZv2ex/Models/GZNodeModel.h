@@ -10,14 +10,24 @@
 
 @interface GZNodeModel : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, copy) NSNumber *id;
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *title_alternative;
-@property (nonatomic, copy) NSString *url;
-@property (nonatomic, copy) NSNumber *topics;
-@property (nonatomic, copy) NSString *avatar_mini;
-@property (nonatomic, copy) NSString *avatar_normal;
-@property (nonatomic, copy) NSString *avatar_large;
+@property (nonatomic, copy) NSNumber *nodeId;
+@property (nonatomic, copy) NSString *nodeName;
+@property (nonatomic, copy) NSString *nodeTitle;
+@property (nonatomic, copy) NSString *nodeTitleAlternative;
+@property (nonatomic, copy) NSString *nodeUrl;
+@property (nonatomic, copy) NSNumber *nodeTopics;
+@property (nonatomic, copy) NSString *nodeAvatarMini;
+@property (nonatomic, copy) NSString *nodeAvatarNormal;
+@property (nonatomic, copy) NSString *nodeAvatarLarge;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+
+@end
+
+@interface GZNodeList : NSObject
+
+@property (nonatomic, strong) NSArray *list;
+
+- (instancetype)initWithArray:(NSArray *)array;
 
 @end

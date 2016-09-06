@@ -7,7 +7,7 @@
 //
 
 #import "GZHelper.h"
-#import <UIKit/UIKit.h> #warning 不导入这个导致无法使用CGFloat
+
 /*
  在XCode6之前 创建项目会自动导入Foundation.h和UIKit.h
  
@@ -105,6 +105,32 @@
     NSArray *localArray = [localTimeString componentsSeparatedByString:@" "];
     
     return localArray;
+}
+
+#pragma mark - 字体宽度
+
++ (CGFloat)getTextWidthWithText:(NSString *)text Font:(UIFont *)font {
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName: font,
+                                 };
+    CGRect expectedLabelRect = [text boundingRectWithSize:(CGSize){CGFLOAT_MAX, CGFLOAT_MAX}
+                                                  options:NSStringDrawingUsesLineFragmentOrigin
+                                               attributes:attributes
+                                                  context:nil];
+    return CGRectGetWidth(expectedLabelRect);
+}
+
++ (CGFloat)getTextHeightWithText:(NSString *)text Font:(UIFont *)font Width:(CGFloat)width {
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName: font,
+                                 };
+    CGRect expectedLabelRect = [text boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
+                                                  options:NSStringDrawingUsesLineFragmentOrigin
+                                               attributes:attributes
+                                                  context:nil];
+    return CGRectGetHeight(expectedLabelRect);
+ 
 }
 
 

@@ -75,7 +75,7 @@
     headerView = [[UIView alloc] init];
     headerView.clipsToBounds = YES; // clipsToBounds:如果子视图的范围超出了父视图的边界，那么超出的部分就会被裁剪掉。
     
-    NSString *dataString = self.info.title;
+    NSString *dataString = self.info.topicTitle;
     UIFont *dataFont = [UIFont systemFontOfSize:14];
     CGSize titleSize = [dataString boundingRectWithSize:CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 54, 400)
                                                 options:NSStringDrawingUsesLineFragmentOrigin
@@ -88,7 +88,7 @@
     title.font = dataFont;
     title.numberOfLines = 0;
     title.frame = CGRectMake(8, 10, titleSize.width, titleSize.height);
-    title.text = self.info.title;
+    title.text = self.info.topicTitle;
     [headerView addSubview:title];
     
     // 头像
@@ -96,7 +96,7 @@
     userAvatar.backgroundColor = [UIColor blackColor];
     userAvatar.layer.cornerRadius = 3;
     userAvatar.layer.masksToBounds = YES;
-    [userAvatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https:%@", [self.info.member valueForKey:@"avatar_mini"]]]
+    [userAvatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https:%@", self.info.topicMember.memberAvatarMini]]
                   placeholderImage:[UIImage imageNamed:@"avatar_placeholder"]];
     
     [headerView addSubview:userAvatar];
@@ -112,7 +112,7 @@
     // 楼主label
     userName = [[UILabel alloc] init];
     UIFont *nameFont = [UIFont boldSystemFontOfSize:12];
-    NSString *usernameStr = [self.info.member valueForKey:@"username"];
+    NSString *usernameStr = self.info.topicMember.memberUsername;
     CGSize nameSize = [usernameStr boundingRectWithSize:CGSizeMake(100, 20)
                                                 options:NSStringDrawingUsesLineFragmentOrigin
                                              attributes:@{NSFontAttributeName:nameFont}
@@ -129,7 +129,7 @@
     
     replyCount = [[UILabel alloc] init];
     UIFont *countFont = [UIFont systemFontOfSize:13];
-    NSString *replyCountStr = [NSString stringWithFormat:@"%@ 回复", self.info.replies];
+    NSString *replyCountStr = [NSString stringWithFormat:@"%@ 回复", self.info.topicReplies];
     CGSize countSize = [replyCountStr boundingRectWithSize:CGSizeMake(100, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:countFont} context:nil].size;
     replyCount.font = countFont;
     replyCount.numberOfLines = 0;
@@ -141,7 +141,7 @@
     // node节点
     nodeName = [[UILabel alloc] init];
     UIFont *nodeFont = [UIFont systemFontOfSize:13];
-    NSString *nodeNameStr = [self.info.node valueForKey:@"name"];
+    NSString *nodeNameStr = self.info.topicNode.nodeName;
     CGSize nodeSize = [nodeNameStr boundingRectWithSize:CGSizeMake(100, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:nodeFont} context:nil].size;
     nodeName.font = nameFont;
     nodeName.numberOfLines = 0;
@@ -171,9 +171,9 @@
 - (void)getTopicData {
     // 获取主题详情数据
     NSLog(@"主题详情请求开始");
-    [[GZDataManager shareManager] getTopicWithTopicId:self.info.id success:^(GZTopicModel *model) {
+    [[GZDataManager shareManager] getTopicWithTopicId:self.info.topicId success:^(GZTopicModel *model) {
         NSLog(@"成功读取主题详情");
-        content = model.content;
+        content = model.topicContent;
         
         UIFont *countFont = [UIFont systemFontOfSize:14];
         CGSize countSize = [content boundingRectWithSize:CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 16, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:countFont} context:nil].size;
@@ -186,7 +186,7 @@
         headerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), articleLabel.frame.origin.y + articleLabel.frame.size.height);
         
         // 时间戳
-        NSString *createdTimeStr = [GZHelper timeRemainDescriptionWithDateSP:self.info.created];
+        NSString *createdTimeStr = [GZHelper timeRemainDescriptionWithDateSP:self.info.topicCreated];
         UIFont *timeFont = [UIFont systemFontOfSize:13];
         CGSize timeSize = [createdTimeStr boundingRectWithSize:CGSizeMake(350, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:timeFont} context:nil].size;
         timeLabel.font = timeFont;
@@ -207,7 +207,7 @@
 
 - (void)getReplyData {
     // 获取回复详情数据
-    [[GZDataManager shareManager] getRepliesWithTopicId:self.info.id success:^(NSArray *repliesArray) {
+    [[GZDataManager shareManager] getRepliesWithTopicId:self.info.topicId success:^(NSArray *repliesArray) {
         NSLog(@"%@",repliesArray);
         self.replyDataList = repliesArray;
         [detailTable reloadData];

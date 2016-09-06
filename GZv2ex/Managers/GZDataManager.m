@@ -164,7 +164,9 @@ typedef NS_ENUM(NSInteger, GZRequestMethod) {
 
 #pragma mark - GET
 
-// 请求最热主题
+/*
+ 请求最热主题
+ */
 - (NSURLSessionDataTask *)getHotTopicsSuccess:(void (^)(NSArray *hotArray))succes
                                       failure:(void (^)(NSError *error))failure {
     return [self requestWithMethod:GZRequestMethodJSONGET
@@ -201,8 +203,8 @@ typedef NS_ENUM(NSInteger, GZRequestMethod) {
  需要通过解析html去获取
  */
 - (NSURLSessionDataTask *)getLatestTopicsWithPage:(NSInteger)page
-                                          success:(void (^)(NSArray *))success
-                                          failure:(void (^)(NSError *))failure {
+                                          success:(void (^)(GZTopicList *list))success
+                                          failure:(void (^)(NSError *error))failure {
     NSDictionary *parameters;
     
     if (page) {
@@ -215,8 +217,13 @@ typedef NS_ENUM(NSInteger, GZRequestMethod) {
                          URLString:@"recent"
                         parameters:parameters
                            success:^(NSURLSessionDataTask *task, id responseObject) {
-                               NSArray *latestArray = [MTLJSONAdapter modelsOfClass:[GZTopicModel class] fromJSONArray:responseObject error:nil];
-                               success(latestArray);
+                               GZTopicList *list = [GZTopicList getTopicListFromResponseObject:responseObject];
+                               if (list) {
+                                   success(list);
+                               } else {
+                                   NSError *error = [[NSError alloc] initWithDomain:self.manager.baseURL.absoluteString code:GZErrorTypeGetTopicListFailure userInfo:nil];
+                                   failure(error);
+                               }
                            } failure:^(NSError *error) {
                                failure(error);
                            }];
@@ -237,11 +244,8 @@ typedef NS_ENUM(NSInteger, GZRequestMethod) {
                          URLString:@"/api/topics/show.json"
                         parameters:parameters
                            success:^(NSURLSessionDataTask *task, id responseObject) {
-                               NSLog(@"=========%@", responseObject);
-                               NSError *error = nil;
-                               GZTopicModel *model = [[GZTopicModel alloc] initWithDictionary:[responseObject firstObject] error:&error];
-                               //                               貌似可以直接用下面这个方法转，可以直接返回数组而不是model
-                               //                               GZTopicModel *model = [MTLJSONAdapter modelsOfClass:[GZTopicModel class] fromJSONArray:responseObject error:nil];
+                               NSLog(@"====进入主题详情请求====");
+                               GZTopicModel *model = [MTLJSONAdapter modelsOfClass:[GZTopicModel class] fromJSONArray:responseObject error:nil][0];
                                success(model);
                            }
                            failure:^(NSError *error) {
@@ -304,6 +308,74 @@ typedef NS_ENUM(NSInteger, GZRequestMethod) {
                            success:^(NSURLSessionDataTask *task, id responseObject) {
                                NSArray *nodeTopiclist = [MTLJSONAdapter modelsOfClass:[GZTopicModel class] fromJSONArray:responseObject error:nil];
                                success(nodeTopiclist);
+                           }
+                           failure:^(NSError *error) {
+                               failure(error);
+                           }];
+}
+
+/* 获取分类节点主题 */
+- (NSURLSessionDataTask *)getTopicListWithType:(GZHotNodesType)type
+                                       success:(void (^)(GZTopicList *list))success
+                                       failure:(void (^)(NSError *error))failure {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    switch (type) {
+        case GZHotNodesTypeTech:
+            [parameters setObject:@"tech" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeCreative:
+            [parameters setObject:@"creative" forKey:@"tab"];
+            break;
+        case GZHotNodesTypePlay:
+            [parameters setObject:@"play" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeApple:
+            [parameters setObject:@"apple" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeJobs:
+            [parameters setObject:@"jobs" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeDeals:
+            [parameters setObject:@"deals" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeCity:
+            [parameters setObject:@"city" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeQna:
+            [parameters setObject:@"qna" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeHot:
+            [parameters setObject:@"hot" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeAll:
+            [parameters setObject:@"all" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeR2:
+            [parameters setObject:@"r2" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeNodes:
+            [parameters setObject:@"nodes" forKey:@"tab"];
+            break;
+        case GZHotNodesTypeMembers:
+            [parameters setObject:@"members" forKey:@"tab"];
+            break;
+            
+        default:
+            [parameters setObject:@"all" forKey:@"tab"];
+            break;
+    }
+    
+    return [self requestWithMethod:GZRequestMethodHTTPGET
+                         URLString:@""
+                        parameters:parameters
+                           success:^(NSURLSessionDataTask *task, id responseObject) {
+                               GZTopicList *list = [GZTopicList getTopicListFromResponseObject:responseObject];
+                               if (list) {
+                                   success(list);
+                               } else {
+                                   NSError *error = [[NSError alloc] initWithDomain:self.manager.baseURL.absoluteString code:GZErrorTypeGetTopicListFailure userInfo:nil];
+                                   failure(error);
+                               }
                            }
                            failure:^(NSError *error) {
                                failure(error);
