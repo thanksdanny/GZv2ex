@@ -15,7 +15,9 @@
 
 @interface GZTopicListViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSArray *hotList;
+
+
+@property (nonatomic, strong) NSArray *topicList;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
@@ -25,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self configureUI];
+    self.title = @"最热";
     [self updateHotData];
     [self configureRefresh];
     
@@ -33,11 +35,6 @@
 
 
 #pragma mark - Configure
-
-- (void)configureUI {
-    self.title = @"最热";
-    
-}
 
 - (void)configureRefresh {
     
@@ -68,19 +65,12 @@
 - (void)updateHotData {
     // 首页获取数据
     
-//    [[GZDataManager shareManager] getLatestTopicsSuccess:^(NSArray *latestArray) {
-//        self.hotList = latestArray;
-//        [self.tableView reloadData]; // 读完数据需要reloadData
-//    } failure:^(NSError *error) {
-//        NSLog(@"%@", error);
-//    }];
-    [[GZDataManager shareManager] getTopicListWithType:GZHotNodesTypeTech
-                                               success:^(GZTopicList *list) {
-                                                   self.hotList = (NSArray *)list;
-                                               }
-                                               failure:^(NSError *error) {
-                                                   NSLog(@"%@", error);
-                                               }];
+    [[GZDataManager shareManager] getLatestTopicsSuccess:^(NSArray *latestArray) {
+        self.topicList = latestArray;
+        [self.tableView reloadData]; // 读完数据需要reloadData
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 #pragma mark - segue
@@ -89,35 +79,40 @@
     if ([segue.identifier isEqualToString:@"TODETAIL"]) {
         GZDetailTopicViewController *detailVC = [segue destinationViewController];
         
-        NSLog(@"%@",[self.hotList[self.tableView.indexPathForSelectedRow.row] class]);
+        NSLog(@"%@",[self.topicList[self.tableView.indexPathForSelectedRow.row] class]);
         // 传选中的model过去
-        detailVC.info = self.hotList[self.tableView.indexPathForSelectedRow.row];
+        detailVC.info = self.topicList[self.tableView.indexPathForSelectedRow.row];
     }
 }
 
 #pragma mark - Table view delagate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 8;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//    return 8;
+//}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return self.hotList.count;
+    NSLog(@"%ld", self.topicList.count);
+    return self.topicList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"hot table view");
-    GZTopicListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"CellIdentifier";
+    
+    GZTopicListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[GZTopicListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     return [self configureTopicCellWithCell:cell IndexPath:indexPath];
 }
@@ -126,7 +121,7 @@
 
 - (GZTopicListCell *)configureTopicCellWithCell:(GZTopicListCell *)cell IndexPath:(NSIndexPath *)indexpath {
     
-    GZTopicModel *model = self.hotList[indexpath.row];
+    GZTopicModel *model = self.topicList[indexpath.row];
     
     cell.model = model;
     
