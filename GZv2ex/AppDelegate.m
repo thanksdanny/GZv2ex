@@ -8,6 +8,12 @@
 
 #import "AppDelegate.h"
 
+#import "GZTopicListViewController.h"
+#import "GZLeftMenuViewController.h"
+
+#import "MMDrawerController.h"
+
+
 @interface AppDelegate ()
 
 @end
@@ -16,7 +22,32 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // 中间控制器
+    GZTopicListViewController *homeVC = [[GZTopicListViewController alloc] init];
+    // 左控制器
+    GZLeftMenuViewController *leftVC = [[GZLeftMenuViewController alloc] init];
+    // 导航栏
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    UINavigationBar *appearance = [UINavigationBar appearance];
+    [appearance setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [appearance setShadowImage:[[UIImage alloc] init]];
+    [appearance setBarStyle:UIBarStyleBlackOpaque];
+    [appearance setBarTintColor:[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1]];
+    [appearance setTintColor:[UIColor whiteColor]];
+    [appearance setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:15], NSFontAttributeName, nil]];
+    
+    // drawer控制器
+    MMDrawerController *drawerVC = [[MMDrawerController alloc] initWithCenterViewController:navVC leftDrawerViewController:leftVC];
+    [drawerVC setMaximumLeftDrawerWidth:90.0];
+    [drawerVC setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window addSubview:drawerVC.view];
+    self.window.rootViewController = drawerVC;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

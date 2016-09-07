@@ -11,6 +11,7 @@
 		FD1077521D7AF7DC00A47FBF /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FD10774F1D7AF7DC00A47FBF /* HTMLNode.m */; };
 		FD1077531D7AF7DC00A47FBF /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1077511D7AF7DC00A47FBF /* HTMLParser.m */; };
 		FD1077571D7B2D3D00A47FBF /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1077561D7B2D3D00A47FBF /* libxml2.2.dylib */; };
+		FD10779A1D7EF01500A47FBF /* GZLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1077991D7EF01500A47FBF /* GZLeftMenuViewController.m */; };
 		FDBD52711D77F290005AC5D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52701D77F290005AC5D1 /* main.m */; };
 		FDBD52741D77F290005AC5D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52731D77F290005AC5D1 /* AppDelegate.m */; };
 		FDBD527C1D77F290005AC5D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDBD527B1D77F290005AC5D1 /* Assets.xcassets */; };
@@ -59,6 +60,8 @@
 		FD1077511D7AF7DC00A47FBF /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
 		FD1077541D7B2A1100A47FBF /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		FD1077561D7B2D3D00A47FBF /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = ../../../../../usr/lib/libxml2.2.dylib; sourceTree = "<group>"; };
+		FD1077981D7EF01500A47FBF /* GZLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZLeftMenuViewController.h; path = Controllers/GZLeftMenuViewController.h; sourceTree = "<group>"; };
+		FD1077991D7EF01500A47FBF /* GZLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZLeftMenuViewController.m; path = Controllers/GZLeftMenuViewController.m; sourceTree = "<group>"; };
 		FDBD526C1D77F290005AC5D1 /* GZv2ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GZv2ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDBD52701D77F290005AC5D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDBD52721D77F290005AC5D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -157,6 +160,17 @@
 			path = Additions/HTMLParser;
 			sourceTree = "<group>";
 		};
+		FD10779B1D7EFF3200A47FBF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FDBD52C21D77F874005AC5D1 /* GZTopicListCell.h */,
+				FDBD52C31D77F874005AC5D1 /* GZTopicListCell.m */,
+				FDBD52C51D77F8A9005AC5D1 /* GZReplyCell.h */,
+				FDBD52C61D77F8A9005AC5D1 /* GZReplyCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		FDBD52631D77F290005AC5D1 = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +257,8 @@
 				FDBD52AD1D77F648005AC5D1 /* GZTopicListViewController.m */,
 				FDBD52AF1D77F695005AC5D1 /* GZDetailTopicViewController.h */,
 				FDBD52B01D77F695005AC5D1 /* GZDetailTopicViewController.m */,
+				FD1077981D7EF01500A47FBF /* GZLeftMenuViewController.h */,
+				FD1077991D7EF01500A47FBF /* GZLeftMenuViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -265,10 +281,7 @@
 		FDBD52A51D77F483005AC5D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FDBD52C21D77F874005AC5D1 /* GZTopicListCell.h */,
-				FDBD52C31D77F874005AC5D1 /* GZTopicListCell.m */,
-				FDBD52C51D77F8A9005AC5D1 /* GZReplyCell.h */,
-				FDBD52C61D77F8A9005AC5D1 /* GZReplyCell.m */,
+				FD10779B1D7EFF3200A47FBF /* Cells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -498,6 +511,7 @@
 				FDBD52741D77F290005AC5D1 /* AppDelegate.m in Sources */,
 				FDBD52C11D77F82B005AC5D1 /* GZTopicModel.m in Sources */,
 				FD1077531D7AF7DC00A47FBF /* HTMLParser.m in Sources */,
+				FD10779A1D7EF01500A47FBF /* GZLeftMenuViewController.m in Sources */,
 				FDBD52C71D77F8A9005AC5D1 /* GZReplyCell.m in Sources */,
 				FDBD52711D77F290005AC5D1 /* main.m in Sources */,
 				FDBD52D31D794B3A005AC5D1 /* NSDictionary+NotNullKey.m in Sources */,
