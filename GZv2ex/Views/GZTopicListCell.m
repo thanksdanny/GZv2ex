@@ -84,12 +84,40 @@ static CGFloat const kBottomFontSize        = 12.0f;
     
     [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(8);
-        make.left.equalTo(self.contentView).offset(16);
+        make.left.equalTo(self.contentView).offset(8);
 //        make.height.mas_equalTo(40);
 //        make.width.mas_equalTo(40);
         make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
 
+    // name
+    self.nameLabel = [[UILabel alloc] init];
+    self.nameLabel.backgroundColor = [UIColor clearColor];
+    self.nameLabel.font = [UIFont boldSystemFontOfSize:kBottomFontSize];
+    self.nameLabel.textAlignment = NSTextAlignmentLeft;
+    [self addSubview:self.nameLabel];
+    
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(8);
+        make.left.equalTo(self.avatarImageView.mas_right).offset(8);
+        make.size.mas_equalTo(CGSizeMake(120, 20));
+    }];
+    
+    // time
+    self.timeLabel = [[UILabel alloc] init];
+    self.timeLabel.backgroundColor = [UIColor clearColor];
+    self.timeLabel.font = [UIFont systemFontOfSize:kBottomFontSize];
+    self.timeLabel.textAlignment = NSTextAlignmentLeft;
+    self.timeLabel.textColor = [UIColor colorWithRed:90.0/255.0 green:90.0/255.0 blue:90.0/255.0 alpha:1];
+    self.timeLabel.alpha = 1.0;
+    [self addSubview:self.timeLabel];
+    
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(1);
+        make.left.equalTo(self.avatarImageView.mas_right).offset(8);
+        make.size.mas_equalTo(CGSizeMake(120, 20));
+    }];
+    
     // title
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.backgroundColor = [UIColor clearColor];
@@ -97,6 +125,13 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.titleLabel.numberOfLines = 0;
     self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail|NSLineBreakByCharWrapping;
     [self addSubview:self.titleLabel];
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.avatarImageView.mas_bottom).offset(1);
+        make.left.equalTo(self.contentView).offset(8);
+        make.right.equalTo(self.contentView).offset(-8);
+        make.size.mas_equalTo(CGSizeMake(343, 30));
+    }];
     
     // reply
     self.replyCountLabel = [[UILabel alloc] init];
@@ -107,41 +142,19 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.replyCountLabel.textColor = [UIColor colorWithRed:90.0/255.0 green:90.0/255.0 blue:90.0/255.0 alpha:1];
     [self addSubview:self.replyCountLabel];
     
-    // time
-    self.timeLabel = [[UILabel alloc] init];
-    self.timeLabel.backgroundColor = [UIColor clearColor];
-    self.timeLabel.font = [UIFont systemFontOfSize:kBottomFontSize];
-    self.timeLabel.textAlignment = NSTextAlignmentCenter;
-    self.timeLabel.textColor = [UIColor colorWithRed:90.0/255.0 green:90.0/255.0 blue:90.0/255.0 alpha:1];
-    self.timeLabel.alpha = 1.0;
-    [self addSubview:self.timeLabel];
-    
-    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(18); //如果写跟在nameLabel下会报错，估计是因为namelabel的高度没被计算出来
-//        make.top.equalTo(self.nameLabel.mas_top).offset(8);
-        make.left.equalTo(self.avatarImageView.mas_right).offset(8);
-    }];
-
-    // name
-    self.nameLabel = [[UILabel alloc] init];
-    self.nameLabel.backgroundColor = [UIColor clearColor];
-    self.nameLabel.font = [UIFont boldSystemFontOfSize:kBottomFontSize];
-    self.nameLabel.textAlignment = NSTextAlignmentRight;
-    [self addSubview:self.nameLabel];
-    
-    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(8);
-        make.left.equalTo(self.avatarImageView.mas_right).offset(8);
-        make.size.mas_equalTo(CGSizeMake(120, 20));
-    }];
-    
     // node
     self.nodeLabel = [[UILabel alloc] init];
     self.nodeLabel.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.040];
     self.nodeLabel.font = [UIFont systemFontOfSize:kBottomFontSize];
-    self.nodeLabel.textAlignment = NSTextAlignmentCenter;
+    self.nodeLabel.textAlignment = NSTextAlignmentLeft;
+    self.nodeLabel.textColor = [UIColor blackColor];
     self.nodeLabel.lineBreakMode = NSLineBreakByTruncatingTail; // 文字截断方式
     [self addSubview:self.nodeLabel];
+    [self.nodeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(1);
+        make.left.equalTo(self.contentView).offset(8);
+        make.size.mas_equalTo(CGSizeMake(60, 20));
+    }];
     
     // 顶线
     self.topLineView = [[UIView alloc] init];
@@ -187,6 +200,9 @@ static CGFloat const kBottomFontSize        = 12.0f;
     // 用户名
     NSString *userNameStr = model.topicMember.memberUsername;
     self.nameLabel.text = userNameStr;
+    
+    // 节点
+    self.nodeLabel.text =  model.topicNode.nodeName;
 }
 
 
@@ -195,8 +211,10 @@ static CGFloat const kBottomFontSize        = 12.0f;
 
 + (CGFloat)getCellHeightWithTopicModel:(GZTopicModel *)model {
     if (model.cellHeight > 10) {
+        NSLog(@"cellHeight > 10=================================");
         return model.cellHeight;
     } else {
+        NSLog(@"cellHeight < 10==================================");
         return [self getCellHeightWithTopicModel:model];
     }
 }

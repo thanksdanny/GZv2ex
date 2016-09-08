@@ -87,23 +87,17 @@
 
 #pragma mark - Table view delagate
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    return 8;
-//}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.topicList.count;
 }
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%ld", self.topicList.count);
-    return self.topicList.count;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 110; //[self heightOfTopicCellForIndexPath:indexPath];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -117,7 +111,20 @@
     return [self configureTopicCellWithCell:cell IndexPath:indexPath];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    GZTopicModel *model = self.topicList[indexPath.row];
+//    GZTopicListViewController *topicVC = [[GZTopicListViewController alloc] init];
+//    topicVC
+}
+
 #pragma mark - Configure TableCell
+
+- (CGFloat)heightOfTopicCellForIndexPath:(NSIndexPath *)indexPath {
+    GZTopicModel *model = self.topicList[indexPath.row];
+    NSLog(@"有重复吗？！====================================");
+    
+    return [GZTopicListCell getCellHeightWithTopicModel:model];
+}
 
 - (GZTopicListCell *)configureTopicCellWithCell:(GZTopicListCell *)cell IndexPath:(NSIndexPath *)indexpath {
     
