@@ -15,6 +15,7 @@
 #import "GZHelper.h"
 
 #import "UIImageView+WebCache.h"
+#import <Masonry.h>
 
 static CGFloat const kAvatarHeight          = 26.0f;
 static CGFloat const kTitleFontSize         = 17.0f;
@@ -59,16 +60,16 @@ static CGFloat const kBottomFontSize        = 12.0f;
     
     return self;
 }
-
-#pragma mark - layout
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    self.avatarImageView.frame  = (CGRect){[UIScreen mainScreen].bounds.size.width - 10 - kAvatarHeight, 13, kAvatarHeight, kAvatarHeight};
-    self.titleLabel.frame       = CGRectMake(10, 15, kTitleLabelWidth, self.titleHeight);
-    
-}
+//
+//#pragma mark - layout
+//
+//- (void)layoutSubviews {
+//    [super layoutSubviews];
+//    
+//    self.avatarImageView.frame  = (CGRect){[UIScreen mainScreen].bounds.size.width - 10 - kAvatarHeight, 13, kAvatarHeight, kAvatarHeight};
+//    self.titleLabel.frame       = CGRectMake(10, 15, kTitleLabelWidth, self.titleHeight);
+//    
+//}
 
 #pragma mark - configure views
 
@@ -80,6 +81,14 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.avatarImageView.clipsToBounds      = YES;
     self.avatarImageView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.avatarImageView];
+    
+    [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(8);
+        make.left.equalTo(self.contentView).offset(16);
+//        make.height.mas_equalTo(40);
+//        make.width.mas_equalTo(40);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+    }];
 
     // title
     self.titleLabel = [[UILabel alloc] init];
@@ -106,6 +115,12 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.timeLabel.textColor = [UIColor colorWithRed:90.0/255.0 green:90.0/255.0 blue:90.0/255.0 alpha:1];
     self.timeLabel.alpha = 1.0;
     [self addSubview:self.timeLabel];
+    
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView.mas_top).offset(18); //如果写跟在nameLabel下会报错，估计是因为namelabel的高度没被计算出来
+//        make.top.equalTo(self.nameLabel.mas_top).offset(8);
+        make.left.equalTo(self.avatarImageView.mas_right).offset(8);
+    }];
 
     // name
     self.nameLabel = [[UILabel alloc] init];
@@ -113,6 +128,12 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.nameLabel.font = [UIFont boldSystemFontOfSize:kBottomFontSize];
     self.nameLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:self.nameLabel];
+    
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(8);
+        make.left.equalTo(self.avatarImageView.mas_right).offset(8);
+        make.size.mas_equalTo(CGSizeMake(120, 20));
+    }];
     
     // node
     self.nodeLabel = [[UILabel alloc] init];
