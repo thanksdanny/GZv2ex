@@ -212,10 +212,10 @@ static CGFloat const kBottomFontSize        = 12.0f;
 + (CGFloat)getCellHeightWithTopicModel:(GZTopicModel *)model {
     if (model.cellHeight > 10) {
         NSLog(@"cellHeight > 10=================================");
-        return model.cellHeight;
+        return model.cellHeight ;
     } else {
         NSLog(@"cellHeight < 10==================================");
-        return [self getCellHeightWithTopicModel:model];
+        return [self heightWithTopicModel:model];
     }
 }
 

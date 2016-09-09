@@ -75,15 +75,15 @@
 
 #pragma mark - segue
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"TODETAIL"]) {
-        GZDetailTopicViewController *detailVC = [segue destinationViewController];
-        
-        NSLog(@"%@",[self.topicList[self.tableView.indexPathForSelectedRow.row] class]);
-        // 传选中的model过去
-        detailVC.info = self.topicList[self.tableView.indexPathForSelectedRow.row];
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"TODETAIL"]) {
+//        GZDetailTopicViewController *detailVC = [segue destinationViewController];
+//        
+//        NSLog(@"%@",[self.topicList[self.tableView.indexPathForSelectedRow.row] class]);
+//        // 传选中的model过去
+//        detailVC.info = self.topicList[self.tableView.indexPathForSelectedRow.row];
+//    }
+//}
 
 #pragma mark - Table view delagate
 
@@ -97,7 +97,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 110; //[self heightOfTopicCellForIndexPath:indexPath];
+    return [self heightOfTopicCellForIndexPath:indexPath];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,16 +112,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    GZTopicModel *model = self.topicList[indexPath.row];
-//    GZTopicListViewController *topicVC = [[GZTopicListViewController alloc] init];
-//    topicVC
+    
+    GZDetailTopicViewController *detailVC = [[GZDetailTopicViewController alloc] init];
+    detailVC.info = self.topicList[indexPath.row];
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
 }
 
 #pragma mark - Configure TableCell
 
 - (CGFloat)heightOfTopicCellForIndexPath:(NSIndexPath *)indexPath {
     GZTopicModel *model = self.topicList[indexPath.row];
-    NSLog(@"有重复吗？！====================================");
+    NSLog(@"设置cell高度 ====================================");
     
     return [GZTopicListCell getCellHeightWithTopicModel:model];
 }
