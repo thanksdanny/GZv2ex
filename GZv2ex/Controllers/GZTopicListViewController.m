@@ -13,6 +13,9 @@
 #import "GZTopicModel.h"
 #import "MJRefresh.h"
 
+#import "MMDrawerController.h"
+#import "UIViewController+MMDrawerController.h"
+
 @interface GZTopicListViewController () <UITableViewDelegate, UITableViewDataSource>
 
 
@@ -30,9 +33,18 @@
     self.title = @"最热";
     [self updateHotData];
     [self configureRefresh];
-    
+    [self initHeaderButton];
 }
 
+#pragma mark - init view
+
+- (void)initHeaderButton {
+    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 33, 14)];
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"nav_menu_icon"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(leftDrawerButtonPress:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftBtnItem;
+}
 
 #pragma mark - Configure
 
@@ -135,6 +147,11 @@
     cell.model = model;
     
     return cell;
+}
+
+#pragma mark - 抽屉效果
+- (void)leftDrawerButtonPress:(id)sender {
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 @end

@@ -31,6 +31,8 @@
 		FDBD52C71D77F8A9005AC5D1 /* GZReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52C61D77F8A9005AC5D1 /* GZReplyCell.m */; };
 		FDBD52CA1D77F8DF005AC5D1 /* GZDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52C91D77F8DF005AC5D1 /* GZDataManager.m */; };
 		FDBD52D31D794B3A005AC5D1 /* NSDictionary+NotNullKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52D21D794B3A005AC5D1 /* NSDictionary+NotNullKey.m */; };
+		FDFD5FC21D8286D20012614E /* circle-left.png in Resources */ = {isa = PBXBuildFile; fileRef = FDFD5FC01D8286D20012614E /* circle-left.png */; };
+		FDFD5FC31D8286D20012614E /* nav_menu_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDFD5FC11D8286D20012614E /* nav_menu_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		FDBD52CB1D77F999005AC5D1 /* GZv2ex-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GZv2ex-Prefix.pch"; sourceTree = "<group>"; };
 		FDBD52D11D794B3A005AC5D1 /* NSDictionary+NotNullKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+NotNullKey.h"; path = "Additions/Categories/NSDictionary+NotNullKey.h"; sourceTree = "<group>"; };
 		FDBD52D21D794B3A005AC5D1 /* NSDictionary+NotNullKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+NotNullKey.m"; path = "Additions/Categories/NSDictionary+NotNullKey.m"; sourceTree = "<group>"; };
+		FDFD5FC01D8286D20012614E /* circle-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-left.png"; sourceTree = "<group>"; };
+		FDFD5FC11D8286D20012614E /* nav_menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_menu_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +302,8 @@
 		FDBD52A91D77F5FE005AC5D1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FDFD5FC01D8286D20012614E /* circle-left.png */,
+				FDFD5FC11D8286D20012614E /* nav_menu_icon.png */,
 				FDBD52AA1D77F5FE005AC5D1 /* avatar_placeholder.png */,
 			);
 			path = Resources;
@@ -431,9 +437,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDBD52A81D77F5CA005AC5D1 /* Main.storyboard in Resources */,
+				FDFD5FC21D8286D20012614E /* circle-left.png in Resources */,
 				FDBD527F1D77F290005AC5D1 /* LaunchScreen.storyboard in Resources */,
 				FDBD52AB1D77F5FE005AC5D1 /* avatar_placeholder.png in Resources */,
 				FDBD527C1D77F290005AC5D1 /* Assets.xcassets in Resources */,
+				FDFD5FC31D8286D20012614E /* nav_menu_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
