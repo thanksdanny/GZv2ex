@@ -51,21 +51,32 @@
     
     [self configureUI];
     [self initTable];
+    [self initHeaderBackButton];
     [self getReplyData];
     [self getTopicData];
     
 }
 
-
-#pragma mark - configure
+#pragma mark - init view
 
 - (void)initTable {
     detailTable.delegate = self;
     detailTable.dataSource = self;
     
     headerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), bottomLine.frame.origin.y + 2);
-    headerView.backgroundColor = [UIColor whiteColor];
+    headerView.backgroundColor = [UIColor redColor];
 }
+
+- (void)initHeaderBackButton {
+    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"circle-left"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBackButton = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftBackButton;
+    
+}
+#pragma mark - configure
+
 
 - (void)configureUI {
     cellContentWidth = [UIScreen mainScreen].bounds.size.width - 69; // 为啥69
@@ -259,6 +270,11 @@
 
 
 
+#pragma mark - action
+
+- (void)backAction {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 
