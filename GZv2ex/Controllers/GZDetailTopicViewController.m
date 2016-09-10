@@ -39,7 +39,6 @@
     CGFloat      cellContentWidth;
 }
 
-
 // 回复
 @property (nonatomic, strong) NSArray *replyDataList;
 
@@ -61,9 +60,11 @@
 #pragma mark - init view
 
 - (void)initTable {
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
+//    self.detailTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+//    self.detailTableView.delegate = self;
+//    self.detailTableView.dataSource = self;
+//    self.detailTableView.backgroundColor = [UIColor yellowColor];
+//    [self.view addSubview:self.detailTableView];
     headerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), bottomLine.frame.origin.y + 2);
     headerView.backgroundColor = [UIColor redColor];
 }

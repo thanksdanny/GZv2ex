@@ -13,6 +13,8 @@
 @interface GZDetailTopicViewController : UITableViewController
 
 @property (nonatomic, strong) GZTopicModel *info;
+//@property (nonatomic, strong) UITableView *detailTableView;
+
 
 @end
 
