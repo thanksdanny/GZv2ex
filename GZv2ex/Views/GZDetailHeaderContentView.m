@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UILabel *tagByLabel;
+@property (nonatomic, strong) UILabel *bottomLine;
 @property (nonatomic, strong) UITextView *contentTextView;
 
 @end
@@ -138,6 +139,17 @@
         make.top.equalTo(self.avatarViewImage.mas_bottom).offset(self.titleLabel.frame.size.height < 17 ? 30 : 17);
         make.right.equalTo(self.superview).offset(-8);
         make.size.mas_equalTo(CGSizeMake(350, 20));
+    }];
+    
+    // bottomline
+    self.bottomLine = [[UILabel alloc] init];
+    self.bottomLine.backgroundColor = [UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1];
+    [self addSubview:self.bottomLine];
+    
+    [self.bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.tagByLabel.mas_bottom).offset(16);
+        make.left.equalTo(self.superview).offset(8);
+        make.size.mas_equalTo(CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 16, 0.5));
     }];
     
     
