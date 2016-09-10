@@ -11,6 +11,7 @@
 #import "GZHelper.h"
 
 #import "UIImageView+WebCache.h"
+#import <Masonry.h>
 
 static CGFloat const kTitleFontSize         = 17.0f;
 static CGFloat const kBottomFontSize        = 12.0f;
@@ -53,6 +54,12 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.avatarImageView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.avatarImageView];
     
+    [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(8);
+        make.left.equalTo(self.contentView).offset(8);
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+    }];
+    
 
     // nameLabel
     self.nameLabel = [[UILabel alloc] init];
@@ -61,6 +68,12 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.nameLabel.font = [UIFont boldSystemFontOfSize:kBottomFontSize];
     self.nameLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:self.nameLabel];
+    
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(8);
+        make.left.equalTo(self.avatarImageView.mas_right).offset(8);
+        make.size.mas_equalTo(CGSizeMake(200, 20));
+    }];
     
     
     // timeLabel
@@ -73,15 +86,26 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.timeLabel.alpha = 1.0;
     [self addSubview:self.timeLabel];
     
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(8);
+        make.right.equalTo(self.contentView).offset(-8);
+        make.size.mas_equalTo(CGSizeMake(100, 20));
+    }];
+    
     
     // replyContentLabel
     self.replyContentLabel = [[UILabel alloc] init];
     self.replyContentLabel.font = [UIFont systemFontOfSize:14];
     self.replyContentLabel.numberOfLines = 0;
     self.replyContentLabel.textColor = [UIColor colorWithRed:90.0/255.0 green:90.0/255.0 blue:90.0/255.0 alpha:1];
-    self.timeLabel.backgroundColor = [UIColor clearColor];
-    
+    self.replyContentLabel.backgroundColor = [UIColor clearColor];
     [self addSubview:self.replyContentLabel];
+    
+    [self.replyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(8);
+        make.left.equalTo(self.avatarImageView.mas_right).offset(8);
+        make.size.mas_equalTo(CGSizeMake(283, 49));
+    }];
     
     
 }

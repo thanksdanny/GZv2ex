@@ -20,7 +20,7 @@
 
 @interface GZDetailTopicViewController () <UITableViewDelegate, UITableViewDataSource>
 {
-    IBOutlet UITableView *detailTable;
+//    IBOutlet UITableView *detailTable;
     
     // 头部
     UIView       *headerView;
@@ -38,6 +38,7 @@
     
     CGFloat      cellContentWidth;
 }
+
 
 // 回复
 @property (nonatomic, strong) NSArray *replyDataList;
@@ -60,8 +61,8 @@
 #pragma mark - init view
 
 - (void)initTable {
-    detailTable.delegate = self;
-    detailTable.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     headerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), bottomLine.frame.origin.y + 2);
     headerView.backgroundColor = [UIColor redColor];
@@ -207,7 +208,7 @@
         timeLabel.text = createdTimeStr;
         [headerView addSubview:timeLabel];
         
-        [detailTable reloadData];
+        [self.tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
@@ -221,7 +222,7 @@
     [[GZDataManager shareManager] getRepliesWithTopicId:self.info.topicId success:^(NSArray *repliesArray) {
         NSLog(@"%@",repliesArray);
         self.replyDataList = repliesArray;
-        [detailTable reloadData];
+        [self.tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
@@ -244,6 +245,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    NSLog(@"%f",  headerView.frame.size.height);
     return headerView.frame.size.height;
 }
 
@@ -253,7 +255,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GZReplyCell *replyCell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    static NSString *CellIdentifier = @"DetailCellIdentifier";
+    GZReplyCell *replyCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!replyCell) {
+        replyCell = [[GZReplyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     return [self configureTopicCellWithCell:replyCell IndexPath:indexPath];
 }
@@ -261,6 +268,7 @@
 #pragma mark - Configure TableCell
 
 - (GZReplyCell *)configureTopicCellWithCell:(GZReplyCell *)cell IndexPath:(NSIndexPath *)indexpath {
+    
     GZReplyModel *model = self.replyDataList[indexpath.row];
     
     cell.model = model;
