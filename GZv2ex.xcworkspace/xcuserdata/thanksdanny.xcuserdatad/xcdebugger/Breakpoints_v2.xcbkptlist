@@ -16,7 +16,7 @@
             startingLineNumber = "40"
             endingLineNumber = "40"
             landmarkName = "+memberJSONTransformer"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GZv2ex/Controllers/GZDetailTopicViewController.m"
-            timestampString = "495222108.444009"
+            timestampString = "495224656.536455"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>

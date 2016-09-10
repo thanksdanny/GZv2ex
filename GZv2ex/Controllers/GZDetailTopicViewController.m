@@ -41,6 +41,7 @@
 
 // 回复
 @property (nonatomic, strong) NSArray *replyDataList;
+//@property (nonatomic, strong) UIView *headerView;
 
 @end
 
@@ -60,11 +61,14 @@
 #pragma mark - init view
 
 - (void)initTable {
-//    self.detailTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
-//    self.detailTableView.delegate = self;
-//    self.detailTableView.dataSource = self;
-//    self.detailTableView.backgroundColor = [UIColor yellowColor];
-//    [self.view addSubview:self.detailTableView];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:self.tableView];
+    
+    self.tableView.backgroundColor = [UIColor greenColor];
+    
     headerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), bottomLine.frame.origin.y + 2);
     headerView.backgroundColor = [UIColor redColor];
 }

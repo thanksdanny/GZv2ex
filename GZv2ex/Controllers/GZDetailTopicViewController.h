@@ -10,10 +10,10 @@
 
 @class GZTopicModel;
 
-@interface GZDetailTopicViewController : UITableViewController
+@interface GZDetailTopicViewController : UIViewController
 
 @property (nonatomic, strong) GZTopicModel *info;
-//@property (nonatomic, strong) UITableView *detailTableView;
+@property (nonatomic, strong) UITableView *tableView;
 
 
 @end
