@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class GZTopicModel;
+
 @interface GZDetailHeaderContentView : UIView
+
+@property (nonatomic, strong) GZTopicModel *headerInfo;
 
 @end
