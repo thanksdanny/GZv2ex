@@ -60,16 +60,7 @@ static CGFloat const kBottomFontSize        = 12.0f;
     
     return self;
 }
-//
-//#pragma mark - layout
-//
-//- (void)layoutSubviews {
-//    [super layoutSubviews];
-//    
-//    self.avatarImageView.frame  = (CGRect){[UIScreen mainScreen].bounds.size.width - 10 - kAvatarHeight, 13, kAvatarHeight, kAvatarHeight};
-//    self.titleLabel.frame       = CGRectMake(10, 15, kTitleLabelWidth, self.titleHeight);
-//    
-//}
+
 
 #pragma mark - configure views
 
@@ -177,16 +168,11 @@ static CGFloat const kBottomFontSize        = 12.0f;
 
 - (void)setModel:(GZTopicModel *)model {
     _model = model;
-    NSLog(@"%@", model);
     
-    self.clipsToBounds = YES;
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    // title
     self.titleLabel.text = model.topicTitle;
     
     // 头像
-    self.avatarImageView.layer.cornerRadius = 3;
-    self.avatarImageView.layer.masksToBounds = YES;
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https:%@", model.topicMember.memberAvatarMini]] placeholderImage:[UIImage imageNamed:@"avatar_placeholder"]];
     
     // 时间戳
@@ -198,8 +184,7 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.replyCountLabel.text = [NSString stringWithFormat:@"%@", replyCountStr];
     
     // 用户名
-    NSString *userNameStr = model.topicMember.memberUsername;
-    self.nameLabel.text = userNameStr;
+    self.nameLabel.text = model.topicMember.memberUsername;
     
     // 节点
     self.nodeLabel.text =  model.topicNode.nodeName;

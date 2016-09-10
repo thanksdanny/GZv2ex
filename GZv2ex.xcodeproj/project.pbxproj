@@ -33,6 +33,7 @@
 		FDBD52D31D794B3A005AC5D1 /* NSDictionary+NotNullKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52D21D794B3A005AC5D1 /* NSDictionary+NotNullKey.m */; };
 		FDFD5FC21D8286D20012614E /* circle-left.png in Resources */ = {isa = PBXBuildFile; fileRef = FDFD5FC01D8286D20012614E /* circle-left.png */; };
 		FDFD5FC31D8286D20012614E /* nav_menu_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDFD5FC11D8286D20012614E /* nav_menu_icon.png */; };
+		FDFD5FC61D8433250012614E /* GZDetailHeaderContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFD5FC51D8433250012614E /* GZDetailHeaderContentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,8 @@
 		FDBD52D21D794B3A005AC5D1 /* NSDictionary+NotNullKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+NotNullKey.m"; path = "Additions/Categories/NSDictionary+NotNullKey.m"; sourceTree = "<group>"; };
 		FDFD5FC01D8286D20012614E /* circle-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-left.png"; sourceTree = "<group>"; };
 		FDFD5FC11D8286D20012614E /* nav_menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_menu_icon.png; sourceTree = "<group>"; };
+		FDFD5FC41D8433250012614E /* GZDetailHeaderContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZDetailHeaderContentView.h; path = Views/GZDetailHeaderContentView.h; sourceTree = "<group>"; };
+		FDFD5FC51D8433250012614E /* GZDetailHeaderContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZDetailHeaderContentView.m; path = Views/GZDetailHeaderContentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				FD10779B1D7EFF3200A47FBF /* Cells */,
+				FDFD5FC41D8433250012614E /* GZDetailHeaderContentView.h */,
+				FDFD5FC51D8433250012614E /* GZDetailHeaderContentView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 				FDBD52B81D77F79F005AC5D1 /* GZMemberModel.m in Sources */,
 				FDBD52741D77F290005AC5D1 /* AppDelegate.m in Sources */,
 				FDBD52C11D77F82B005AC5D1 /* GZTopicModel.m in Sources */,
+				FDFD5FC61D8433250012614E /* GZDetailHeaderContentView.m in Sources */,
 				FD1077531D7AF7DC00A47FBF /* HTMLParser.m in Sources */,
 				FD10779A1D7EF01500A47FBF /* GZLeftMenuViewController.m in Sources */,
 				FDBD52C71D77F8A9005AC5D1 /* GZReplyCell.m in Sources */,
