@@ -11,6 +11,7 @@
 #import "GZMemberModel.h"
 #import "GZReplyModel.h"
 #import "GZNodeModel.h"
+#import "GZDataManager.h"
 #import "GZHelper.h"
 
 #import <Masonry.h>
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) UILabel *bottomLine;
 @property (nonatomic, strong) UITextView *contentTextView;
 
+
 @end
 
 @implementation GZDetailHeaderContentView
@@ -39,10 +41,17 @@
     if (self) {
         self.backgroundColor = [UIColor blueColor];
         self.clipsToBounds = YES; // clipsToBounds:如果子视图的范围超出了父视图的边界，那么超出的部分就会被裁剪掉。
+//        [self getTopicHeaderData];
         [self configureUI];
     }
 
     return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame withModel:(GZTopicModel *)model {
+    self.headerInfo = model;
+    
+    return [self initWithFrame:frame];
 }
 
 #pragma mark - configure
@@ -182,5 +191,17 @@
         make.left.equalTo(self).offset(8);
     }];
 }
+
+#pragma mark - 主题header数据请求
+//- (void)getTopicHeaderData {
+//    [[GZDataManager shareManager] getTopicWithTopicId:self.info.topicId
+//                                              success:^(GZTopicModel *model) {
+//                                                  NSLog(@"详情主题header请求成功 ==========");
+//                                                  self.headerInfo = model;
+//                                              }
+//                                              failure:^(NSError *error) {
+//                                                  NSLog(@"%@", error);
+//                                              }];
+//}
 
 @end

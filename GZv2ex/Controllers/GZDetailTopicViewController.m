@@ -89,19 +89,17 @@
     
     // header
 //    self.headerView = [[GZDetailHeaderContentView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), bottomLine.frame.origin.y + 2)];
-    self.headerView.headerInfo = self.info;
-    self.headerView = [[GZDetailHeaderContentView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 400)];
-//    headerView = [[UIView alloc] init];
+    //    headerView = [[UIView alloc] init];
 //    headerView.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), bottomLine.frame.origin.y + 2);
 //    self.headerView.backgroundColor = [UIColor redColor];
 //    self.headerView.clipsToBounds = YES; // clipsToBounds:如果子视图的范围超出了父视图的边界，那么超出的部分就会被裁剪掉。
     
-    NSString *dataString = self.info.topicTitle;
-    UIFont *dataFont = [UIFont systemFontOfSize:14];
-    CGSize titleSize = [dataString boundingRectWithSize:CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 54, 400)
-                                                options:NSStringDrawingUsesLineFragmentOrigin
-                                             attributes:@{NSFontAttributeName:dataFont}
-                                                context:nil].size;
+//    NSString *dataString = self.info.topicTitle;
+//    UIFont *dataFont = [UIFont systemFontOfSize:14];
+//    CGSize titleSize = [dataString boundingRectWithSize:CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 54, 400)
+//                                                options:NSStringDrawingUsesLineFragmentOrigin
+//                                             attributes:@{NSFontAttributeName:dataFont}
+//                                                context:nil].size;
     
     // 标题lable
 //    title = [[UILabel alloc] init];
@@ -149,10 +147,10 @@
     // 回复数
     
 //    replyCount = [[UILabel alloc] init];
-    UIFont *countFont = [UIFont systemFontOfSize:13];
-    NSString *replyCountStr = [NSString stringWithFormat:@"%@ 回复", self.info.topicReplies];
-    CGSize countSize = [replyCountStr boundingRectWithSize:CGSizeMake(100, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:countFont} context:nil].size;
-//    replyCount.font = countFont;
+//    UIFont *countFont = [UIFont systemFontOfSize:13];
+//    NSString *replyCountStr = [NSString stringWithFormat:@"%@ 回复", self.info.topicReplies];
+//    CGSize countSize = [replyCountStr boundingRectWithSize:CGSizeMake(100, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:countFont} context:nil].size;
+////    replyCount.font = countFont;
 //    replyCount.numberOfLines = 0;
 //    replyCount.textColor = [UIColor grayColor];
 //    replyCount.frame = CGRectMake(userName.frame.origin.x + userName.frame.size.width + 8, uTag.frame.origin.y, countSize.width, 20);
@@ -162,7 +160,7 @@
     // node节点
 //    nodeName = [[UILabel alloc] init];
 //    UIFont *nodeFont = [UIFont systemFontOfSize:13];
-    NSString *nodeNameStr = self.info.topicNode.nodeName;
+//    NSString *nodeNameStr = self.info.topicNode.nodeName;
 //    CGSize nodeSize = [nodeNameStr boundingRectWithSize:CGSizeMake(100, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:nodeFont} context:nil].size;
 //    nodeName.font = nameFont;
 //    nodeName.numberOfLines = 0;
@@ -192,7 +190,12 @@
 - (void)getTopicData {
     // 获取主题详情数据
 //    NSLog(@"主题详情请求开始");
-//    [[GZDataManager shareManager] getTopicWithTopicId:self.info.topicId success:^(GZTopicModel *model) {
+    [[GZDataManager shareManager] getTopicWithTopicId:self.info.topicId success:^(GZTopicModel *model) {
+        
+//        self.headerView = [[GZDetailHeaderContentView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 400)];
+        self.headerView = [[GZDetailHeaderContentView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 400) withModel:model];
+
+        
 //        NSLog(@"成功读取主题详情");
 ////        content = model.topicContent;
 ////        
@@ -217,10 +220,10 @@
 ////        timeLabel.text = createdTimeStr;
 ////        [headerView addSubview:timeLabel];
 //        
-//        [self.tableView reloadData];
-//    } failure:^(NSError *error) {
-//        NSLog(@"%@", error);
-//    }];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
     
     NSLog(@"结束");
     

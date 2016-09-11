@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) GZTopicModel *headerInfo;
 
+- (instancetype)initWithFrame:(CGRect)frame withModel:(GZTopicModel *)model;
+
 @end
