@@ -402,7 +402,6 @@
 				TargetAttributes = {
 					FDBD526B1D77F290005AC5D1 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = TX6G2DNPWK;
 					};
 					FDBD52841D77F290005AC5D1 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -669,6 +668,7 @@
 			baseConfigurationReference = E607A3EA5608A4BF7AEC2301 /* Pods-GZv2ex.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GZv2ex/GZv2ex-Prefix.pch";
@@ -724,6 +724,7 @@
 			baseConfigurationReference = 879AB877D5B6F571103B7A4B /* Pods-GZv2ex.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GZv2ex/GZv2ex-Prefix.pch";

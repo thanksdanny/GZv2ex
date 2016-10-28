@@ -30,7 +30,7 @@
     self.memberAvatarNormal = [dict objectForSafeKey:@"avatar_normal"];
     self.memberAvatarLarge  = [dict objectForSafeKey:@"avatar_large"];
     
-#warning 设置头像时可以在这处理url
+#warning set avatar url prefix
 //    if ([self.memberAvatarMini hasPrefix:@"//"]) {
 //        self.memberAvatarMini = [@"http:" stringByAppendingString:self.memberAvatarMini];
 //    }

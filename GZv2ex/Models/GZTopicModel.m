@@ -158,7 +158,7 @@
                         if (avatarNode) {
                             NSString *avatarString = [avatarNode getAttributeNamed:@"src"];
                             if ([avatarString hasPrefix:@"//"]) {
-#warning 若头像显示不出时候注意这里
+#warning be careful if the avatar can't visiable
                                 avatarString = [@"http:" stringByAppendingString:avatarString];
                             }
                             model.topicMember.memberAvatarNormal = avatarString;

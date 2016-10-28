@@ -46,6 +46,9 @@ static CGFloat const kBottomFontSize        = 12.0f;
 #pragma mark - configure views
 
 - (void)configureViews {
+    
+    __weak UIView *superview = self;
+    
     // avatar
     self.avatarImageView = [[UIImageView alloc] init];
     self.avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -54,11 +57,6 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.avatarImageView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.avatarImageView];
     
-    [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(8);
-        make.left.equalTo(self.contentView).offset(8);
-        make.size.mas_equalTo(CGSizeMake(30, 30));
-    }];
     
 
     // nameLabel
@@ -69,11 +67,6 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.nameLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:self.nameLabel];
     
-    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(8);
-        make.left.equalTo(self.avatarImageView.mas_right).offset(8);
-        make.size.mas_equalTo(CGSizeMake(200, 20));
-    }];
     
     
     // timeLabel
@@ -86,12 +79,6 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.timeLabel.alpha = 1.0;
     [self addSubview:self.timeLabel];
     
-    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(8);
-        make.right.equalTo(self.contentView).offset(-8);
-        make.size.mas_equalTo(CGSizeMake(100, 20));
-    }];
-    
     
     // replyContentLabel
     self.replyContentLabel = [[UILabel alloc] init];
@@ -100,13 +87,37 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.replyContentLabel.textColor = [UIColor colorWithRed:90.0/255.0 green:90.0/255.0 blue:90.0/255.0 alpha:1];
     self.replyContentLabel.backgroundColor = [UIColor clearColor];
     [self addSubview:self.replyContentLabel];
+
     
-    [self.replyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.nameLabel.mas_bottom).offset(8);
-        make.left.equalTo(self.avatarImageView.mas_right).offset(8);
-        make.size.mas_equalTo(CGSizeMake(283, 49));
+    /* ---------- 约束 ---------- */
+    // 头像
+    [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(superview).with.offset(8);
+        make.left.equalTo(superview).with.offset(8);
+        make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
     
+    // 用户名
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(superview).with.offset(8);
+        make.left.equalTo(_avatarImageView.mas_right).with.offset(8);
+        make.size.mas_equalTo(CGSizeMake(200, 20));
+    }];
+    
+    // 时间戳
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_nameLabel.mas_top);
+        make.right.equalTo(superview).with.offset(-8);
+        make.size.mas_equalTo(CGSizeMake(100, 20));
+    }];
+    
+    // 回复内容
+    [self.replyContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_nameLabel.mas_bottom).with.offset(8);
+        make.left.equalTo(_avatarImageView.mas_right).with.offset(8);
+        make.right.equalTo(superview).with.offset(-8);
+        make.bottom.equalTo(superview).with.offset(-8);
+    }];
     
 }
 
@@ -116,7 +127,7 @@ static CGFloat const kBottomFontSize        = 12.0f;
     _model = model;
     
     // 用户名
-    self.nameLabel.text = model.member.memberUsername;
+    self.nameLabel.text = [NSString stringWithFormat:@"@%@", model.member.memberUsername];
     
     // 头像
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https:%@", model.member.memberAvatarMini]] placeholderImage:[UIImage imageNamed:@"avatar_placeholder"]];
