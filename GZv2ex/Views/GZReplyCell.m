@@ -16,6 +16,8 @@
 static CGFloat const kTitleFontSize         = 17.0f;
 static CGFloat const kBottomFontSize        = 12.0f;
 
+#define kReplyLabelWidth ([UIScreen mainScreen].bounds.size.width - 40 - 8 * 3)
+
 @interface GZReplyCell ()
 
 @property (nonatomic, strong) UIImageView *avatarImageView;
@@ -138,6 +140,24 @@ static CGFloat const kBottomFontSize        = 12.0f;
     // 回复时间戳
     self.timeLabel.text = [GZHelper timeRemainDescriptionWithDateSP:model.created];
     
+}
+
+#pragma mark - Class Methods
+
++ (CGFloat)getCellHeightWithReplyModel:(GZReplyModel *)model {
+    if (model.cellHeight) {
+        return model.cellHeight;
+    } else {
+        return [self heightWithReplyModel:model];
+    }
+}
+
++ (CGFloat)heightWithReplyModel:(GZReplyModel *)model {
+    NSInteger contentHeight = [GZHelper getTextHeightWithText:model.content Font:[UIFont systemFontOfSize:kTitleFontSize] Width:kReplyLabelWidth] + 1;
+    CGFloat cellHeight = contentHeight + 8 * 3 + 20; // 20为nameLabel的高度
+    model.cellHeight = cellHeight;
+    
+    return cellHeight;
 }
 
 @end

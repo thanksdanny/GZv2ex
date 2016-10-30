@@ -149,7 +149,7 @@
         make.height.equalTo(@22);
         make.top.equalTo(superview).with.offset(8);
         make.left.equalTo(superview).with.offset(8);
-        make.right.equalTo(_avatarViewImage.mas_right).with.offset(8);
+        make.right.equalTo(_avatarViewImage.mas_left).with.offset(-8);
     }];
     
     // 头像

@@ -20,4 +20,6 @@
 @property (nonatomic, strong) NSNumber      *created;
 @property (nonatomic, copy  ) NSNumber      *last_modified;
 
+@property (nonatomic, assign) CGFloat cellHeight;
+
 @end

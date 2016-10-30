@@ -95,11 +95,12 @@
 #pragma mark - Table view data source
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GZReplyModel *obj = [self.replyDataList objectAtIndex:indexPath.row];
-    UIFont *countFont = [UIFont systemFontOfSize:14];
-    CGSize countSize = [obj.content boundingRectWithSize:CGSizeMake(self.cellContentWidth, 10000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:countFont} context:nil].size;
-    
-    return countSize.height + 50;
+//    GZReplyModel *obj = [self.replyDataList objectAtIndex:indexPath.row];
+//    UIFont *countFont = [UIFont systemFontOfSize:14];
+//    CGSize countSize = [obj.content boundingRectWithSize:CGSizeMake(self.cellContentWidth, 10000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:countFont} context:nil].size;
+//    
+//    return countSize.height + 50;
+    return [self heightOfReplyCellForIndexPath:indexPath];
 }
 
 
@@ -128,6 +129,12 @@
 }
 
 #pragma mark - Configure TableCell
+
+- (CGFloat)heightOfReplyCellForIndexPath:(NSIndexPath *)indexPath {
+    GZReplyCell *model = self.replyDataList[indexPath.row];
+    
+    return [GZReplyCell getCellHeightWithReplyModel:model];
+}
 
 - (GZReplyCell *)configureTopicCellWithCell:(GZReplyCell *)cell IndexPath:(NSIndexPath *)indexpath {
     

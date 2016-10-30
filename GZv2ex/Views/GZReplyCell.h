@@ -13,4 +13,7 @@
 
 @property (nonatomic, strong) GZReplyModel *model;
 
++ (CGFloat)getCellHeightWithReplyModel:(GZReplyModel *)model;
++ (CGFloat)heightWithReplyModel:(GZReplyModel *)model;
+
 @end
