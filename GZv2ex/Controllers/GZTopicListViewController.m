@@ -33,24 +33,11 @@
     [super viewDidLoad];
     
     self.title = @"最热";
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.estimatedRowHeight = 80.0f;
     
     [self updateHotData];
     [self configureRefresh];
     [self initHeaderButton];
     
-//#ifdef IOS_8_NEW_FEATURE_SELF_SIZING
-//    // iOS 8 的 Self—sizing特性
-//    if ([UIDevice currentDevice].systemVersion.integerValue > 7) {
-//        self.tableView.rowHeight = UITableViewAutomaticDimension;
-//    }
-//#endif
-//    // 注册Cell
-//    [self.tableView registerClass:[GZTopicListCell class] forCellReuseIdentifier:NSStringFromClass([GZTopicListCell class])];
-//    [self.tableView reloadData];
-//    
 }
 
 #pragma mark - init view
@@ -128,34 +115,6 @@
 // 高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [self heightOfTopicCellForIndexPath:indexPath];
-    
-//#ifdef IOS_8_NEW_FEATURE_SELF_SIZING
-//    return UITableViewAutomaticDimension;
-//#else
-//    
-//    if (!_cell) {
-//        _cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([GZTopicListCell class])];
-//        _cell.tag = -1000; // for degbu dealloc
-//        
-//    }
-//    
-//    // 获取对应数据
-//    GZTopicModel *dataModel = self.topicList[indexPath.row];
-//    
-//    // 判断是否已经计算过高度
-//    if (dataModel.cellHeight <= 0) {
-//        // 填充数据
-//        [_cell setModel:dataModel];
-//        // 根据当前数据，计算Cell的高度，注意+1
-//        dataModel.cellHeight = [_cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;
-//        NSLog(@"Calculate:%ld, height: %g", (long)indexPath.row, dataModel.cellHeight);
-//    } else {
-//        NSLog(@"Calculate:%ld, height: %g", (long)indexPath.row, dataModel.cellHeight);
-//    }
-//    
-//    return dataModel.cellHeight;
-//    
-//#endif
     
 }
 

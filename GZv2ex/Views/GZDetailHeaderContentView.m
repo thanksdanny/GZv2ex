@@ -39,7 +39,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor whiteColor];
         self.clipsToBounds = YES; // clipsToBounds:如果子视图的范围超出了父视图的边界，那么超出的部分就会被裁剪掉。
         [self configureUI];
     }
@@ -60,11 +60,6 @@
     
     __weak UIView *superview = self;
     
-    /* 
-     title
-     需要高度改变
-     */
-    
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.textColor = [UIColor colorWithRed:79.0/255.0 green:79.0/255.0 blue:79.0/255.0 alpha:1];
     self.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -72,9 +67,7 @@
     self.titleLabel.text = self.headerInfo.topicTitle;
     [self addSubview:self.titleLabel];
     
-    /*
-     avatar
-     */
+    // 头像
     self.avatarViewImage = [[UIImageView alloc] init];
     self.avatarViewImage.backgroundColor = [UIColor blackColor];
     self.avatarViewImage.layer.cornerRadius = 3;
@@ -139,89 +132,87 @@
     
     // content  -- 多行
     CGFloat preferrredMaxWidth = [UIScreen mainScreen].bounds.size.width - 33 - 4 * 3; // 33 = 头像宽度 4 * 3 为 padding
-    _contentLabel = [[UILabel alloc] init];
-    _contentLabel.font = [UIFont systemFontOfSize:14];
-    _contentLabel.textColor = [UIColor grayColor];
-    _contentLabel.text = self.headerInfo.topicContent;
-    _contentLabel.numberOfLines = 0;
-    _contentLabel.preferredMaxLayoutWidth = preferrredMaxWidth; // 多行时必须设置
+    self.contentLabel = [[UILabel alloc] init];
+    self.contentLabel.font = [UIFont systemFontOfSize:14];
+    self.contentLabel.textColor = [UIColor grayColor];
+    self.contentLabel.text = self.headerInfo.topicContent;
+    self.contentLabel.numberOfLines = 0;
+    self.contentLabel.preferredMaxLayoutWidth = preferrredMaxWidth; // 多行时必须设置
     
     [self addSubview:self.contentLabel];
    
     
-    
-    /* ------------- 约束 ------------- 
-     
-        貌似还需要动态计算label的宽度
-     */
+    /* ------------- 约束 ------------- */
     
     // titleLabel
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@22);
-        make.top.equalTo(superview).with.offset(4);
-        make.left.equalTo(superview).with.offset(4);
-        make.right.equalTo(_avatarViewImage.mas_right).with.offset(4);
+        make.top.equalTo(superview).with.offset(8);
+        make.left.equalTo(superview).with.offset(8);
+        make.right.equalTo(_avatarViewImage.mas_right).with.offset(8);
     }];
     
     // 头像
     [self.avatarViewImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.and.height.equalTo(@40);
         make.right.equalTo(superview).with.offset(-8);
         make.top.equalTo(superview).with.offset(8);
-        make.width.and.height.equalTo(@33);
     }];
     
     // by 的 tag Label
     [self.tagByLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.and.height.equalTo(@20);
         make.top.equalTo(_avatarViewImage.mas_bottom).with.offset(8);
         make.left.equalTo(superview).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.bottom.equalTo(_bottomLine.mas_top).offset(-8);
     }];
     
     // 用户名
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_tagByLabel.mas_top);
+        make.size.height.equalTo(@20);
+        make.top.equalTo(_tagByLabel);
         make.left.equalTo(_tagByLabel.mas_right).with.offset(4);
-        make.size.mas_equalTo(CGSizeMake(80, 20));
+        make.bottom.equalTo(_tagByLabel);
     }];
     
-    // 回复
+    // 回复数
     [self.replyCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_tagByLabel.mas_top);
+        make.height.equalTo(@20);
+        make.top.equalTo(_tagByLabel);
         make.left.equalTo(_nameLabel.mas_right).with.offset(4);
-        make.size.mas_equalTo(CGSizeMake(50, 20));
+        make.bottom.equalTo(_tagByLabel);
     }];
     
     // 节点
     [self.nodeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_tagByLabel.mas_top);
+        make.height.equalTo(@20);
+        make.top.equalTo(_tagByLabel);
         make.left.equalTo(_replyCountLabel.mas_right).with.offset(4);
-        make.size.mas_equalTo(CGSizeMake(50, 20));
+        make.bottom.equalTo(_tagByLabel);
     }];
     
     // 时间戳
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_tagByLabel.mas_top);
+        make.height.equalTo(@20);
+        make.top.equalTo(_tagByLabel);
         make.right.equalTo(superview).with.offset(-8);
-        make.size.mas_equalTo(CGSizeMake(80, 20));
+        make.bottom.equalTo(_tagByLabel);
     }];
     
     // 底线
     [self.bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_tagByLabel.mas_bottom).offset(16);
-        make.left.equalTo(superview).offset(8);
-        make.size.mas_equalTo(CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 16, 0.5));
+        make.height.equalTo(@0.5);
+        make.top.equalTo(_tagByLabel.mas_bottom).with.offset(16);
+        make.left.equalTo(superview).with.offset(8);
+        make.right.equalTo(superview).with.offset(-8);
     }];
     
     // 内容
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_bottomLine.mas_bottom).with.offset(8);
-        make.left.equalTo(superview).with.offset(4);
-        make.right.equalTo(superview).with.offset(-4);
-        make.bottom.equalTo(superview).with.offset(-4);
+        make.left.equalTo(superview).with.offset(8);
+        make.right.and.bottom.equalTo(superview).with.offset(-8);
     }];
-    
-    [_contentLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
-    
     
 }
 

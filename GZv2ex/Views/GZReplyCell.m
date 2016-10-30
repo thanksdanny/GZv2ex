@@ -92,23 +92,23 @@ static CGFloat const kBottomFontSize        = 12.0f;
     /* ---------- 约束 ---------- */
     // 头像
     [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(superview).with.offset(8);
-        make.left.equalTo(superview).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(30, 30));
+        make.width.and.height.equalTo(@30);
+        make.top.and.left.equalTo(superview).with.offset(8);
     }];
     
     // 用户名
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@20);
         make.top.equalTo(superview).with.offset(8);
         make.left.equalTo(_avatarImageView.mas_right).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(200, 20));
     }];
     
     // 时间戳
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_nameLabel.mas_top);
+        make.height.equalTo(@20);
+        make.top.equalTo(_nameLabel);
         make.right.equalTo(superview).with.offset(-8);
-        make.size.mas_equalTo(CGSizeMake(100, 20));
+        
     }];
     
     // 回复内容

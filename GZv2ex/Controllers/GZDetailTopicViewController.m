@@ -46,10 +46,8 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor yellowColor];
+    self.tableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
-    
-   
 }
 
 - (void)initHeaderBackButton {
@@ -74,7 +72,7 @@
 
 - (void)getTopicData {
     [[GZDataManager shareManager] getTopicWithTopicId:self.info.topicId success:^(GZTopicModel *model) {
-        self.headerView = [[GZDetailHeaderContentView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 400) withModel:model];
+        self.headerView = [[GZDetailHeaderContentView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 300) withModel:model];
      
         [self.tableView reloadData];
     } failure:^(NSError *error) {
