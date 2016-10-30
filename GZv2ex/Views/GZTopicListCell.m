@@ -21,7 +21,7 @@
 static CGFloat const kTitleFontSize         = 17.0f;
 static CGFloat const kBottomFontSize        = 12.0f;
 
-#define kTitleLabelWidth ([UIScreen mainScreen].bounds.size.width - 56)
+#define kTitleLabelWidth ([UIScreen mainScreen].bounds.size.width - 40 - 8 * 3)
 
 @interface GZTopicListCell ()
 
@@ -96,7 +96,7 @@ static CGFloat const kBottomFontSize        = 12.0f;
     
     
     // title
-    CGFloat preferredMaxWidth = [UIScreen mainScreen].bounds.size.width - 40 - 8 * 3;
+    CGFloat preferredMaxWidth = kTitleLabelWidth;
     
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.backgroundColor = [UIColor clearColor];
@@ -150,7 +150,7 @@ static CGFloat const kBottomFontSize        = 12.0f;
     // 时间戳与回复数
     [self.timeAndReplyCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@20);
-        make.top.equalTo(_nameLabel.mas_bottom).with.offset(4);
+        make.top.equalTo(_nameLabel.mas_bottom).with.offset(0);
         make.left.equalTo(_avatarImageView.mas_right).with.offset(8);
         make.right.equalTo(superview).with.offset(-8);
     }];
@@ -160,7 +160,7 @@ static CGFloat const kBottomFontSize        = 12.0f;
         make.top.equalTo(_timeAndReplyCountLabel.mas_bottom).with.offset(8);
         make.left.equalTo(superview).with.offset(8);
         make.right.equalTo(superview).with.offset(-8);
-        make.bottom.equalTo(superview).with.offset(-8);
+//        make.bottom.equalTo(_nodeLabel.mas_top).with.offset(-8);
     }];
 
     // node
@@ -204,10 +204,8 @@ static CGFloat const kBottomFontSize        = 12.0f;
 
 + (CGFloat)getCellHeightWithTopicModel:(GZTopicModel *)model {
     if (model.cellHeight > 10) {
-        NSLog(@"cellHeight > 10=================================");
         return model.cellHeight ;
     } else {
-        NSLog(@"cellHeight < 10==================================");
         return [self heightWithTopicModel:model];
     }
 }
@@ -215,9 +213,9 @@ static CGFloat const kBottomFontSize        = 12.0f;
 + (CGFloat)heightWithTopicModel:(GZTopicModel *)model {
     NSInteger titleHeight = [GZHelper getTextHeightWithText:model.topicTitle Font:[UIFont systemFontOfSize:kTitleFontSize] Width:kTitleLabelWidth] + 1;
     
-    NSInteger bottomHeight = (NSInteger)[GZHelper getTextHeightWithText:model.topicNode.nodeName Font:[UIFont systemFontOfSize:kBottomFontSize] Width:CGFLOAT_MAX] + 1;
+//    NSInteger bottomHeight = (NSInteger)[GZHelper getTextHeightWithText:model.topicNode.nodeName Font:[UIFont systemFontOfSize:kBottomFontSize] Width:CGFLOAT_MAX] + 1;
     
-    CGFloat cellHeight = 8 + 13 * 2 + titleHeight + bottomHeight;
+    CGFloat cellHeight = 8 * 4 + 40 + titleHeight + 20; // 20 是bottom hight 40 是头像
     model.cellHeight = cellHeight;
     model.titleHeight = titleHeight;
     

@@ -127,9 +127,7 @@
 
 // 高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return [self heightOfTopicCellForIndexPath:indexPath];
-    return 150;
-    
+    return [self heightOfTopicCellForIndexPath:indexPath];
     
 //#ifdef IOS_8_NEW_FEATURE_SELF_SIZING
 //    return UITableViewAutomaticDimension;
@@ -186,7 +184,6 @@
 
 - (CGFloat)heightOfTopicCellForIndexPath:(NSIndexPath *)indexPath {
     GZTopicModel *model = self.topicList[indexPath.row];
-    NSLog(@"设置cell高度 ====================================");
     
     return [GZTopicListCell getCellHeightWithTopicModel:model];
 }
