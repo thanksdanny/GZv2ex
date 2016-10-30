@@ -89,17 +89,21 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.timeAndReplyCountLabel = [[UILabel alloc] init];
     self.timeAndReplyCountLabel.backgroundColor = [UIColor clearColor];
     self.timeAndReplyCountLabel.textAlignment = NSTextAlignmentLeft;
+    self.timeAndReplyCountLabel.font = [UIFont boldSystemFontOfSize:kBottomFontSize];
     self.timeAndReplyCountLabel.textColor = [UIColor colorWithRed:90.0/255.0 green:90.0/255.0 blue:90.0/255.0 alpha:1];
     self.timeAndReplyCountLabel.alpha = 1.0;
     [self addSubview:self.timeAndReplyCountLabel];
     
     
     // title
+    CGFloat preferredMaxWidth = [UIScreen mainScreen].bounds.size.width - 40 - 8 * 3;
+    
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.backgroundColor = [UIColor clearColor];
     self.titleLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
     self.titleLabel.numberOfLines = 0;
     self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail|NSLineBreakByCharWrapping;
+    self.titleLabel.preferredMaxLayoutWidth = preferredMaxWidth;
     [self addSubview:self.titleLabel];
     
     
@@ -112,13 +116,13 @@ static CGFloat const kBottomFontSize        = 12.0f;
     self.nodeLabel.lineBreakMode = NSLineBreakByTruncatingTail; // 文字截断方式
     [self addSubview:self.nodeLabel];
     
-    // 顶线
-    self.topLineView = [[UIView alloc] init];
-    [self addSubview:self.topLineView];
-    
-    // 底线
-    self.borderLineView = [[UIView alloc] init];
-    [self addSubview:self.borderLineView];
+//    // 顶线
+//    self.topLineView = [[UIView alloc] init];
+//    [self addSubview:self.topLineView];
+//    
+//    // 底线
+//    self.borderLineView = [[UIView alloc] init];
+//    [self addSubview:self.borderLineView];
     
     // 各个label字体颜色
 //    self.titleLabel.textColor               = kFontColorBlackDark;
@@ -131,38 +135,40 @@ static CGFloat const kBottomFontSize        = 12.0f;
     /* ---------- 约束 ---------- */
     // 头像
     [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(superview).with.offset(8);
-        make.left.equalTo(superview).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(40, 40));
+        make.width.and.height.equalTo(@40);
+        make.left.and.top.equalTo(superview).with.offset(8);
     }];
     
     // 用户名
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(superview).offset(8);
+        make.height.equalTo(@20);
+        make.top.equalTo(superview).with.offset(8);
         make.left.equalTo(_avatarImageView.mas_right).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(120, 20));
+        make.right.equalTo(superview).with.offset(-8);
     }];
     
     // 时间戳与回复数
     [self.timeAndReplyCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@20);
         make.top.equalTo(_nameLabel.mas_bottom).with.offset(4);
-        make.left.equalTo(_nameLabel);
+        make.left.equalTo(_avatarImageView.mas_right).with.offset(8);
+        make.right.equalTo(superview).with.offset(-8);
     }];
     
     // title
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_avatarImageView.mas_bottom).with.offset(8);
+        make.top.equalTo(_timeAndReplyCountLabel.mas_bottom).with.offset(8);
         make.left.equalTo(superview).with.offset(8);
         make.right.equalTo(superview).with.offset(-8);
-        make.bottom.equalTo(superview).with.offset(-20);
+        make.bottom.equalTo(superview).with.offset(-8);
     }];
 
     // node
     [self.nodeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.mas_bottom).with.offset(4);
+        make.top.equalTo(_titleLabel.mas_bottom).with.offset(8);
         make.left.equalTo(superview).with.offset(8);
         make.bottom.equalTo(superview).with.offset(-8);
-        make.size.mas_equalTo(CGSizeMake(60, 20));
+        make.height.equalTo(@20);
     }];
     
 }
@@ -182,7 +188,7 @@ static CGFloat const kBottomFontSize        = 12.0f;
     // 时间戳与回复数
     NSString *timestamp = [GZHelper timeRemainDescriptionWithDateSP:model.topicCreated];
     NSString *replyCountStr = [NSString stringWithFormat:@"%@ 回复", model.topicReplies];
-    NSString *timeAndReplyCountStr = [NSString stringWithFormat:@"%@/%@ 回复", timestamp, replyCountStr];
+    NSString *timeAndReplyCountStr = [NSString stringWithFormat:@"%@/%@", timestamp, replyCountStr];
     self.timeAndReplyCountLabel.text = timeAndReplyCountStr;
     
     // 用户名
