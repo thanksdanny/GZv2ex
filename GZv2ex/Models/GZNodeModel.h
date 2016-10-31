@@ -31,3 +31,22 @@
 - (instancetype)initWithArray:(NSArray *)array;
 
 @end
+
+@interface GZMenuNode : NSObject
+
+@property (nonatomic, copy) NSString *nodeName;
+@property (nonatomic, copy) NSString *nodeCode;
+@property (nonatomic, copy) NSArray *childNodeArray;
+
+- (id)initWithNodeName:(NSString *)name nodeCode:(NSString *)code;
+
+@end
+
+@interface GZMenuChildNode : NSObject
+
+@property (nonatomic, copy) NSString *childNodeName;
+@property (nonatomic, copy) NSString *childNodeCode;
+
+
+- (id)initWithChildNodeName:(NSString *)name childNode:(NSString *)code;
+@end

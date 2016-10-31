@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol nodeSelectDelegate <NSObject>
+
+- (void)nodeSelectAtIndex:(NSString *)code name:(NSString *)name index:(NSInteger)index;
+
+@end
+
 @interface GZLeftMenuViewController : UITableViewController
+
+@property (nonatomic, assign) id<nodeSelectDelegate> delegate;
 
 @end

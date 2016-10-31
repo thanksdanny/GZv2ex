@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3CBC0DBAD77A47CAA97F5F65 /* libPods-GZv2ex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ECE4C8F5F9AAA1E7C803FFE /* libPods-GZv2ex.a */; };
+		FD0045211DC73E2200AE959D /* GZMenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0045201DC73E2200AE959D /* GZMenuHeaderView.m */; };
 		FD1077521D7AF7DC00A47FBF /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FD10774F1D7AF7DC00A47FBF /* HTMLNode.m */; };
 		FD1077531D7AF7DC00A47FBF /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1077511D7AF7DC00A47FBF /* HTMLParser.m */; };
 		FD1077571D7B2D3D00A47FBF /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1077561D7B2D3D00A47FBF /* libxml2.2.dylib */; };
@@ -57,6 +58,8 @@
 		0ECE4C8F5F9AAA1E7C803FFE /* libPods-GZv2ex.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GZv2ex.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		879AB877D5B6F571103B7A4B /* Pods-GZv2ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GZv2ex.release.xcconfig"; path = "Pods/Target Support Files/Pods-GZv2ex/Pods-GZv2ex.release.xcconfig"; sourceTree = "<group>"; };
 		E607A3EA5608A4BF7AEC2301 /* Pods-GZv2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GZv2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GZv2ex/Pods-GZv2ex.debug.xcconfig"; sourceTree = "<group>"; };
+		FD00451F1DC73E2200AE959D /* GZMenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZMenuHeaderView.h; path = Views/GZMenuHeaderView.h; sourceTree = "<group>"; };
+		FD0045201DC73E2200AE959D /* GZMenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZMenuHeaderView.m; path = Views/GZMenuHeaderView.m; sourceTree = "<group>"; };
 		FD10774E1D7AF7DC00A47FBF /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
 		FD10774F1D7AF7DC00A47FBF /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
 		FD1077501D7AF7DC00A47FBF /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
@@ -291,6 +294,8 @@
 				FD10779B1D7EFF3200A47FBF /* Cells */,
 				FDFD5FC41D8433250012614E /* GZDetailHeaderContentView.h */,
 				FDFD5FC51D8433250012614E /* GZDetailHeaderContentView.m */,
+				FD00451F1DC73E2200AE959D /* GZMenuHeaderView.h */,
+				FD0045201DC73E2200AE959D /* GZMenuHeaderView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				FDBD52B41D77F72E005AC5D1 /* GZHelper.m in Sources */,
 				FDBD52CA1D77F8DF005AC5D1 /* GZDataManager.m in Sources */,
 				FDBD52AE1D77F648005AC5D1 /* GZTopicListViewController.m in Sources */,
+				FD0045211DC73E2200AE959D /* GZMenuHeaderView.m in Sources */,
 				FDBD52BB1D77F7D8005AC5D1 /* GZNodeModel.m in Sources */,
 				FDBD52BE1D77F802005AC5D1 /* GZReplyModel.m in Sources */,
 			);

@@ -60,3 +60,33 @@
 }
 
 @end
+
+
+@implementation GZMenuNode
+
+- (id)initWithNodeName:(NSString *)name nodeCode:(NSString *)code {
+    self = [super init];
+    
+    if (self) {
+        self.nodeName = name;
+        self.nodeCode = code;
+    }
+    return self;
+}
+
+@end
+
+@implementation GZMenuChildNode
+
+- (id)initWithChildNodeName:(NSString *)name childNode:(NSString *)code {
+    self = [super init];
+    
+    if (self) {
+        self.childNodeName = name;
+        self.childNodeCode = code;
+    }
+    
+    return self;
+}
+
+@end
