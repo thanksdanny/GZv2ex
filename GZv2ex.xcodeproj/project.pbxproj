@@ -13,6 +13,10 @@
 		FD1077531D7AF7DC00A47FBF /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1077511D7AF7DC00A47FBF /* HTMLParser.m */; };
 		FD1077571D7B2D3D00A47FBF /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1077561D7B2D3D00A47FBF /* libxml2.2.dylib */; };
 		FD10779A1D7EF01500A47FBF /* GZLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1077991D7EF01500A47FBF /* GZLeftMenuViewController.m */; };
+		FD4AEAAF1DCA510500DE654B /* TDRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4AEAAE1DCA510500DE654B /* TDRefreshHeader.m */; };
+		FD4AEAB31DCA5C6F00DE654B /* MSGStatusToast.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4AEAB21DCA5C6F00DE654B /* MSGStatusToast.m */; };
+		FD4AEACC1DCB20DD00DE654B /* TDRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4AEACB1DCB20DD00DE654B /* TDRefreshNormalHeader.m */; };
+		FD4AEACF1DCB217800DE654B /* TDRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4AEACE1DCB217800DE654B /* TDRefreshAutoNormalFooter.m */; };
 		FDBD52711D77F290005AC5D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52701D77F290005AC5D1 /* main.m */; };
 		FDBD52741D77F290005AC5D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBD52731D77F290005AC5D1 /* AppDelegate.m */; };
 		FDBD527C1D77F290005AC5D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDBD527B1D77F290005AC5D1 /* Assets.xcassets */; };
@@ -68,6 +72,14 @@
 		FD1077561D7B2D3D00A47FBF /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = ../../../../../usr/lib/libxml2.2.dylib; sourceTree = "<group>"; };
 		FD1077981D7EF01500A47FBF /* GZLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZLeftMenuViewController.h; path = Controllers/GZLeftMenuViewController.h; sourceTree = "<group>"; };
 		FD1077991D7EF01500A47FBF /* GZLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZLeftMenuViewController.m; path = Controllers/GZLeftMenuViewController.m; sourceTree = "<group>"; };
+		FD4AEAAD1DCA510500DE654B /* TDRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDRefreshHeader.h; path = Helper/TDRefreshHeader.h; sourceTree = "<group>"; };
+		FD4AEAAE1DCA510500DE654B /* TDRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDRefreshHeader.m; path = Helper/TDRefreshHeader.m; sourceTree = "<group>"; };
+		FD4AEAB11DCA5C6F00DE654B /* MSGStatusToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSGStatusToast.h; path = Helper/MSGStatusToast.h; sourceTree = "<group>"; };
+		FD4AEAB21DCA5C6F00DE654B /* MSGStatusToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSGStatusToast.m; path = Helper/MSGStatusToast.m; sourceTree = "<group>"; };
+		FD4AEACA1DCB20DD00DE654B /* TDRefreshNormalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDRefreshNormalHeader.h; path = Helper/TDRefreshNormalHeader.h; sourceTree = "<group>"; };
+		FD4AEACB1DCB20DD00DE654B /* TDRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDRefreshNormalHeader.m; path = Helper/TDRefreshNormalHeader.m; sourceTree = "<group>"; };
+		FD4AEACD1DCB217800DE654B /* TDRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDRefreshAutoNormalFooter.h; path = Helper/TDRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
+		FD4AEACE1DCB217800DE654B /* TDRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDRefreshAutoNormalFooter.m; path = Helper/TDRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
 		FDBD526C1D77F290005AC5D1 /* GZv2ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GZv2ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDBD52701D77F290005AC5D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDBD52721D77F290005AC5D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -181,6 +193,37 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		FD4AEAAB1DCA50A800DE654B /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				FD4AEAAD1DCA510500DE654B /* TDRefreshHeader.h */,
+				FD4AEAAE1DCA510500DE654B /* TDRefreshHeader.m */,
+				FD4AEACA1DCB20DD00DE654B /* TDRefreshNormalHeader.h */,
+				FD4AEACB1DCB20DD00DE654B /* TDRefreshNormalHeader.m */,
+				FD4AEACD1DCB217800DE654B /* TDRefreshAutoNormalFooter.h */,
+				FD4AEACE1DCB217800DE654B /* TDRefreshAutoNormalFooter.m */,
+			);
+			name = Refresh;
+			sourceTree = "<group>";
+		};
+		FD4AEAAC1DCA50CC00DE654B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FDBD52B21D77F72E005AC5D1 /* GZHelper.h */,
+				FDBD52B31D77F72E005AC5D1 /* GZHelper.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		FD4AEAB01DCA5C4F00DE654B /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				FD4AEAB11DCA5C6F00DE654B /* MSGStatusToast.h */,
+				FD4AEAB21DCA5C6F00DE654B /* MSGStatusToast.m */,
+			);
+			name = Toast;
+			sourceTree = "<group>";
+		};
 		FDBD52631D77F290005AC5D1 = {
 			isa = PBXGroup;
 			children = (
@@ -254,8 +297,9 @@
 		FDBD52A21D77F465005AC5D1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				FDBD52B21D77F72E005AC5D1 /* GZHelper.h */,
-				FDBD52B31D77F72E005AC5D1 /* GZHelper.m */,
+				FD4AEAB01DCA5C4F00DE654B /* Toast */,
+				FD4AEAAB1DCA50A800DE654B /* Refresh */,
+				FD4AEAAC1DCA50CC00DE654B /* Helper */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -525,12 +569,16 @@
 			files = (
 				FD1077521D7AF7DC00A47FBF /* HTMLNode.m in Sources */,
 				FDBD52B81D77F79F005AC5D1 /* GZMemberModel.m in Sources */,
+				FD4AEACC1DCB20DD00DE654B /* TDRefreshNormalHeader.m in Sources */,
 				FDBD52741D77F290005AC5D1 /* AppDelegate.m in Sources */,
 				FDBD52C11D77F82B005AC5D1 /* GZTopicModel.m in Sources */,
+				FD4AEAAF1DCA510500DE654B /* TDRefreshHeader.m in Sources */,
+				FD4AEACF1DCB217800DE654B /* TDRefreshAutoNormalFooter.m in Sources */,
 				FDFD5FC61D8433250012614E /* GZDetailHeaderContentView.m in Sources */,
 				FD1077531D7AF7DC00A47FBF /* HTMLParser.m in Sources */,
 				FD10779A1D7EF01500A47FBF /* GZLeftMenuViewController.m in Sources */,
 				FDBD52C71D77F8A9005AC5D1 /* GZReplyCell.m in Sources */,
+				FD4AEAB31DCA5C6F00DE654B /* MSGStatusToast.m in Sources */,
 				FDBD52711D77F290005AC5D1 /* main.m in Sources */,
 				FDBD52D31D794B3A005AC5D1 /* NSDictionary+NotNullKey.m in Sources */,
 				FDBD52C41D77F874005AC5D1 /* GZTopicListCell.m in Sources */,
